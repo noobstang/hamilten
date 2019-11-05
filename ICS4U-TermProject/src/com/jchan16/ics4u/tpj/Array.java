@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ics4u;
+package com.jchan16.ics4u.tpj;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,14 +15,14 @@ import java.sql.SQLException;
 public class Array {
 
     private int counter;
-    private Entries Array2[];
-    
-    public Array(ResultSet a){
-        counter=setCounter(a);
-        Entries Array1[]= new Entries[getCounter()];
-        
-        
+    private Entries[] Array2;
+
+    public Array(ResultSet a) {
+        counter = setCounter(a);
+        Array2 = new Entries[getCounter()];
+
     }
+
     public int setCounter(ResultSet a) {
         int i = 0;
         try {
@@ -36,10 +36,37 @@ public class Array {
         }
         return 0;
     }
-    
-    public int getCounter(){
+
+    //new
+    public void fillArray(ResultSet a) {
+        try {
+            while (a.next()) {
+                int fill=0;
+                int b = a.getInt("Entries");
+                boolean c = a.getBoolean("Favorite");
+                String d = a.getString("Subject");
+                String e = a.getString("Date");
+                String fo="";
+                if (a.getString("amount") != null) {
+                    fo = a.getString("Amount");
+                } else if (a.getString("AMOUNT") == null) {
+                    fo = "0.00";
+                }
+                String go="";
+                if (a.getString("notes") != null) {
+                    go = a.getString("notes");
+                } else if (a.getString("notes") == null) {
+                    go = "";
+                }
+               Array2[fill]= new Entries(b,c,d,e,fo,go);
+            }
+        } catch (SQLException e) {
+
+        }
+    }
+
+    public int getCounter() {
         return counter;
     }
-    
 
 }

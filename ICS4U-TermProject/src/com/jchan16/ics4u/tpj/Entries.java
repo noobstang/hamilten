@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ics4u;
+package com.jchan16.ics4u.tpj;
 
 /**
  *
@@ -18,7 +18,7 @@ public class Entries {
     private Amount price;
     private String notes;
 
-    public void fillEntrie(int i, boolean f, String s, String d, String a, String n) {
+    public Entries(int i, boolean f, String s, String d, String a, String n) {
         id = i;
         favorite = f;
         subject = s;
@@ -26,6 +26,17 @@ public class Entries {
         price = new Amount(a);
         notes = n;
     }
+    
+    public  Entries(int i, boolean f, String s, String d, String a){
+        id = i;
+        favorite = f;
+        subject = s;
+        time = new Date(d);
+        price = new Amount(a); 
+        notes="";
+    }
+    
+    
 
     public int getId() {
         return id;
