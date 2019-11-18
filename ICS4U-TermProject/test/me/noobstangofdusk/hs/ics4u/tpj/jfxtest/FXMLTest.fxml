@@ -3,10 +3,13 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.layout.VBox?>
 
 <AnchorPane id="AnchorPane" minHeight="360.0" minWidth="640.0" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -43,7 +46,27 @@
         <tabs>
           <Tab text="Finance">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <ScrollPane>
+                                 <content>
+                                    <TableView prefHeight="478.0" prefWidth="960.0">
+                                      <columns>
+                                        <TableColumn prefWidth="96.0" text="Entry #" />
+                                        <TableColumn prefWidth="89.0" text="Subject" />
+                                          <TableColumn prefWidth="85.0" text="Date" />
+                                          <TableColumn prefWidth="83.0" text="Amount" />
+                                          <TableColumn prefWidth="74.0" text="Balance" />
+                                          <TableColumn prefWidth="97.0" text="Favourites" />
+                                      </columns>
+                                    </TableView>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children></AnchorPane>
             </content>
           </Tab>
           <Tab text="Report">
