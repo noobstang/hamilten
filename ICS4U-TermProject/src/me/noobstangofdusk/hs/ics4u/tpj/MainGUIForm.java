@@ -37,6 +37,8 @@ public class MainGUIForm extends javax.swing.JPanel {
         importButton = new javax.swing.JButton();
         exportButton = new javax.swing.JButton();
         addButton = new javax.swing.JButton();
+        searchPane = new javax.swing.JPanel();
+        accountPane = new javax.swing.JPanel();
         reportPane = new javax.swing.JPanel();
         graphPane = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
@@ -56,8 +58,6 @@ public class MainGUIForm extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        searchPane = new javax.swing.JPanel();
-        accountPane = new javax.swing.JPanel();
 
         textLabel.setText("* Change values directly in grid; Use [add] button to create new entry.");
 
@@ -160,6 +160,32 @@ public class MainGUIForm extends javax.swing.JPanel {
         );
 
         tabbedPane.addTab("Finance", financePane);
+
+        javax.swing.GroupLayout searchPaneLayout = new javax.swing.GroupLayout(searchPane);
+        searchPane.setLayout(searchPaneLayout);
+        searchPaneLayout.setHorizontalGroup(
+            searchPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1082, Short.MAX_VALUE)
+        );
+        searchPaneLayout.setVerticalGroup(
+            searchPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 403, Short.MAX_VALUE)
+        );
+
+        tabbedPane.addTab("Search", searchPane);
+
+        javax.swing.GroupLayout accountPaneLayout = new javax.swing.GroupLayout(accountPane);
+        accountPane.setLayout(accountPaneLayout);
+        accountPaneLayout.setHorizontalGroup(
+            accountPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1082, Short.MAX_VALUE)
+        );
+        accountPaneLayout.setVerticalGroup(
+            accountPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 403, Short.MAX_VALUE)
+        );
+
+        tabbedPane.addTab("Account", accountPane);
 
         javax.swing.GroupLayout graphPaneLayout = new javax.swing.GroupLayout(graphPane);
         graphPane.setLayout(graphPaneLayout);
@@ -292,32 +318,6 @@ public class MainGUIForm extends javax.swing.JPanel {
         );
 
         tabbedPane.addTab("Report", reportPane);
-
-        javax.swing.GroupLayout searchPaneLayout = new javax.swing.GroupLayout(searchPane);
-        searchPane.setLayout(searchPaneLayout);
-        searchPaneLayout.setHorizontalGroup(
-            searchPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1082, Short.MAX_VALUE)
-        );
-        searchPaneLayout.setVerticalGroup(
-            searchPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 403, Short.MAX_VALUE)
-        );
-
-        tabbedPane.addTab("Search", searchPane);
-
-        javax.swing.GroupLayout accountPaneLayout = new javax.swing.GroupLayout(accountPane);
-        accountPane.setLayout(accountPaneLayout);
-        accountPaneLayout.setHorizontalGroup(
-            accountPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1082, Short.MAX_VALUE)
-        );
-        accountPaneLayout.setVerticalGroup(
-            accountPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 403, Short.MAX_VALUE)
-        );
-
-        tabbedPane.addTab("Account", accountPane);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
