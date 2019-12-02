@@ -4,7 +4,7 @@
  *  
  *  This class  * 
  */
-package me.noobstangofdusk.hs.ics4u.tpj;
+package me.noobstangofdusk.hs.ics4u.tpj.test;
 
 /**
  *

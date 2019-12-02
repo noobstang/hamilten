@@ -5,7 +5,7 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
@@ -13,7 +13,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -21,9 +21,12 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.control.TreeView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -34,17 +37,14 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Open..." />
-                  <MenuItem mnemonicParsing="false" text="Save" />
-                  <MenuItem mnemonicParsing="false" text="Save As..." />
               <MenuItem mnemonicParsing="false" text="Close" />
                   <MenuItem mnemonicParsing="false" onAction="#exitAction" text="Exit" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Undo" />
               <MenuItem mnemonicParsing="false" text="Delete" />
+                  <MenuItem mnemonicParsing="false" text="Find..." />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Account">
@@ -58,8 +58,8 @@
             </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
+                  <MenuItem mnemonicParsing="false" text="Application Help" />
               <MenuItem mnemonicParsing="false" text="About" />
-                  <MenuItem mnemonicParsing="false" text="License" />
             </items>
           </Menu>
         </menus>
@@ -72,7 +72,7 @@
                      <children>
                         <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <TableView editable="true">
+                              <TableView editable="true" prefHeight="460.0" prefWidth="960.0">
                                 <columns>
                                   <TableColumn prefWidth="96.3026123046875" text="Entry #" />
                                   <TableColumn prefWidth="92.50747680664062" text="Subject" />
@@ -86,24 +86,25 @@
                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                  </columnResizePolicy>
                               </TableView>
-                              <HBox>
-                                 <children>
-                                    <Separator prefHeight="0.0" prefWidth="11.0" />
-                                    <ButtonBar prefHeight="40.0" prefWidth="200.0">
-                                      <buttons>
-                                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="85.0" text="Search..." />
-                                      </buttons>
-                                    </ButtonBar>
-                                    <ButtonBar prefHeight="40.0" prefWidth="930.0">
-                                      <buttons>
-                                          <Button mnemonicParsing="false" text="Import" />
-                                        <Button mnemonicParsing="false" text="Export" />
-                                      </buttons>
-                                    </ButtonBar>
-                                    <Separator disable="true" opacity="0.0" />
-                                    <Separator prefHeight="0.0" prefWidth="50.0" />
-                                 </children>
-                              </HBox>
+                              <BorderPane>
+                                 <center>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="14.0" layoutY="14.0" text="View:" />
+                                          <ChoiceBox layoutX="66.0" layoutY="9.0" prefWidth="150.0" />
+                                          <Button layoutX="810.0" layoutY="9.0" mnemonicParsing="false" text="Import" AnchorPane.rightAnchor="88.0" AnchorPane.topAnchor="9.0">
+                                             <tooltip>
+                                                <Tooltip text="Import table from local file or account database." />
+                                             </tooltip></Button>
+                                          <Button layoutX="885.0" layoutY="9.0" mnemonicParsing="false" text="Export" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="9.0">
+                                             <tooltip>
+                                                <Tooltip text="Export data to local file or account database." />
+                                             </tooltip></Button>
+                                          <Button layoutX="133.0" layoutY="35.0" mnemonicParsing="false" text="Advanced" />
+                                       </children>
+                                    </AnchorPane>
+                                 </center>
+                              </BorderPane>
                            </children>
                         </VBox>
                      </children></AnchorPane>
@@ -121,7 +122,11 @@
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <ListView layoutY="22.0" prefHeight="366.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <ScrollPane layoutX="10.399999618530273" layoutY="10.399999618530273" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <content>
+                                                      <TreeView prefHeight="399.0" prefWidth="200.0" />
+                                                   </content>
+                                                </ScrollPane>
                                              </children>
                                           </AnchorPane>
                                     </content>
@@ -130,7 +135,7 @@
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <ListView layoutX="10.0" layoutY="10.0" prefHeight="366.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <ListView layoutY="14.0" prefHeight="399.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                              </children>
                                           </AnchorPane>
                                     </content>
@@ -139,7 +144,7 @@
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <ListView layoutY="31.0" prefHeight="366.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <ListView layoutY="31.0" prefHeight="399.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                              </children>
                                           </AnchorPane>
                                     </content>
@@ -155,26 +160,16 @@
                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                  </columnResizePolicy>
                               </TableView>
-                              <VBox>
-                                 <children>
-                                    <BarChart prefHeight="478.0" prefWidth="542.0">
-                                      <xAxis>
-                                        <CategoryAxis label="Income Category" side="BOTTOM" />
-                                      </xAxis>
-                                      <yAxis>
-                                        <NumberAxis side="LEFT" />
-                                      </yAxis>
-                                    </BarChart>
-                                    <Separator orientation="VERTICAL" prefHeight="110.0" prefWidth="0.0" />
-                                 </children>
-                              </VBox>
+                              <BarChart prefHeight="478.0" prefWidth="542.0">
+                                <xAxis>
+                                  <CategoryAxis label="Income Category" side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </BarChart>
                            </children>
                         </HBox>
-                        <ButtonBar prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="15.0">
-                          <buttons>
-                            <Button mnemonicParsing="false" text="Customize" />
-                          </buttons>
-                        </ButtonBar>
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -182,9 +177,9 @@
                <content>
                   <SplitPane dividerPositions="0.65" prefHeight="160.0" prefWidth="200.0">
                     <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="705.0">
                            <children>
-                              <Label layoutX="14.0" layoutY="14.0" text="Account Log In:" textFill="#a286c6" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+                              <Label layoutX="14.0" layoutY="14.0" text="Account Log In:" textFill="#5e0ec6" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
                                  <font>
                                     <Font name="System Bold" size="19.0" />
                                  </font>
@@ -193,7 +188,7 @@
                               <Label layoutX="32.0" layoutY="88.0" text="Password:" AnchorPane.leftAnchor="32.0" AnchorPane.topAnchor="92.0" />
                               <TextField layoutX="115.0" layoutY="59.0" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="59.0" />
                               <PasswordField layoutX="115.0" layoutY="95.0" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="95.0" />
-                              <Button layoutX="229.0" layoutY="133.0" mnemonicParsing="false" text="Log In" AnchorPane.leftAnchor="229.0" AnchorPane.topAnchor="132.0" />
+                              <Button fx:id="accTabLginButton" layoutX="229.0" layoutY="133.0" mnemonicParsing="false" onAction="#loginActionPerformed" text="Log In" AnchorPane.leftAnchor="229.0" AnchorPane.topAnchor="132.0" />
                               <Hyperlink layoutX="162.0" layoutY="166.0" text="Forgot Password?" AnchorPane.leftAnchor="162.0" AnchorPane.topAnchor="166.0" />
                            </children>
                         </AnchorPane>
@@ -201,7 +196,7 @@
                            <children>
                               <ImageView fitHeight="720.0" pickOnBounds="true" preserveRatio="true" rotate="16.5" translateX="-100.0" x="100.0" y="230.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <image>
-                                    <Image url="@../../../../../../../../../../../Pictures/我的图片/背景/01936_bluetiles_1920x1080.jpg" />
+                                    <Image url="@../../../../../../../../../../Pictures/我的图片/背景/01936_bluetiles_1920x1080.jpg" />
                                  </image>
                               </ImageView>
                            </children>
