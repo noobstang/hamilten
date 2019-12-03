@@ -13,17 +13,17 @@ import java.util.ArrayList;
  *
  * @author Jackie
  */
-public class Array {
+public class Array2 {
 
     private int counter;
     private ArrayList<Entries> Array2 = new ArrayList<Entries>();
 
-    public Array(ResultSet a) {
+    public Array2(ResultSet a) {
         fill(a);
 
     }
 
-    public Array(DatabaseDummy a) {
+    public Array2(DatabaseDummy a) {
         fill(a);
     }
 //needs database

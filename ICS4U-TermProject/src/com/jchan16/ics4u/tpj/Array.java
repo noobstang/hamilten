@@ -7,6 +7,7 @@ package com.jchan16.ics4u.tpj;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,59 +16,94 @@ import java.sql.SQLException;
 public class Array {
 
     private int counter;
-    private Entries[] Array2;
+    private ArrayList<Entries> Array2 = new ArrayList<Entries>();
 
     public Array(ResultSet a) {
-        counter = setCounter(a);
-        Array2 = new Entries[getCounter()];
+        fill(a);
 
     }
 
-    public int setCounter(ResultSet a) {
+    public Array(DatabaseDummy a) {
+        fill(a);
+    }
+//needs database
+
+    public void fill(ResultSet a) {
+        try {
+            while (a.next()) {
+                try {
+                    Array2.add(new Entries(a.getInt("ID"), a.getBoolean("Favorite"), a.getString("SUBJECT"),
+                            a.getString("DATE"), a.getString("AMOUNT"), a.getString("NOTES")));
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+//// use this to for fake data array list
+    public void fill(DatabaseDummy a) {
+
+        for (int j = 0; j < a.test2.size(); j++) {
+
+            Array2.add(new Entries(a.test2.get(j).getId(), a.test2.get(j).getFavorite(), a.test2.get(j).getSubject(),
+                    a.test2.get(j).date(4), a.test2.get(j).getPrice().getFull(), a.test2.get(j).getNotes()));
+
+        }
+    }
+    
+
+    public ArrayList<Entries> getArray2() {
+        return Array2;
+    }
+//dead don't use will figure out use later
+    public void setCounter(ResultSet a) {
         int i = 0;
         try {
             while (a.next()) {
                 i++;
             }
             counter = i;
-            return counter;
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return 0;
+
     }
-
-    //new
-    public void fillArray(ResultSet a) {
-        try {
-            while (a.next()) {
-                int fill=0;
-                int b = a.getInt("Entries");
-                boolean c = a.getBoolean("Favorite");
-                String d = a.getString("Subject");
-                String e = a.getString("Date");
-                String fo="";
-                if (a.getString("amount") != null) {
-                    fo = a.getString("Amount");
-                } else if (a.getString("AMOUNT") == null) {
-                    fo = "0.00";
-                }
-                String go="";
-                if (a.getString("notes") != null) {
-                    go = a.getString("notes");
-                } else if (a.getString("notes") == null) {
-                    go = "";
-                }
-               Array2[fill]= new Entries(b,c,d,e,fo,go);
-            }
-        } catch (SQLException e) {
-
-        }
-    }
-    
-
+//dead don't use for now
     public int getCounter() {
         return counter;
     }
 
+    public void sortSubjectAD() {
+        for (int j = 1; j < getArray2().size(); j++) {
+            int key = j;
+            int ender = key - 1;
+            String key1 = getArray2().get(j).getSubject();
+            String ender1 = getArray2().get(ender).getSubject();
+            while (key >= 0 && key1.compareToIgnoreCase(ender1) > 0) {
+                //Dummy entries, copies  entries [key]
+                Entries p = new Entries();
+                p.changeEntries(getArray2().get(key).getId(), getArray2().get(key).getFavorite(),
+                        getArray2().get(key).getSubject(), getArray2().get(key).date(4), getArray2().get(key).getPrice().getFull(), getArray2().get(key).getNotes());
+                ///transfers entries[ender] to entries[key]
+                getArray2().get(key).changeEntries(getArray2().get(ender).getId(), getArray2().get(ender).getFavorite(),
+                        getArray2().get(ender).getSubject(), getArray2().get(ender).date(4), getArray2().get(ender).getPrice().getFull(),
+                        getArray2().get(ender).getNotes());
+                /// entries[ender] then takes info from entries p        
+                getArray2().get(ender).changeEntries(p.getId(), p.getFavorite(),
+                        p.getSubject(), p.date(4), p.getPrice().getFull(),
+                        p.getNotes());
+            }
+
+        }
+    }
+    //public void printArray(){
+    //for(int j=0; j<getCounter();j++){
+    //System.out.println(Array2[j].getId()+" "+Array2[j].getFavorite()
+    //+" "+Array2[j].getSubject()+" "+Array2[j].date(4)+" "Array2[j].getPrice().getFull()+" "+Array2[j].getNotes());
+    //}
+    //}
 }

@@ -12,6 +12,7 @@ package com.jchan16.ics4u.tpj;
 public class Amount {
 private boolean checker;
 private double amount;
+private String fullAmount;
 
 public Amount(String t){
 if(t.substring(0,1).equals("+")==true){
@@ -21,6 +22,7 @@ else if(t.substring(0,1).equals("-")==false){
 checker=false;  
 }
 amount= Double.parseDouble(t.substring(1,t.length()));
+setFull(checker,amount);
 }
 
 public boolean check(){
@@ -30,5 +32,15 @@ public boolean check(){
 public double checkAmount(){
     return amount;
 }
-
+ public void setFull(boolean a, double b){
+   if(a==true){
+   fullAmount="+"+amount;
+   }else{
+       fullAmount="-"+amount;
+   }
+ }
+ 
+ public String getFull(){
+     return fullAmount;
+ }
 }
