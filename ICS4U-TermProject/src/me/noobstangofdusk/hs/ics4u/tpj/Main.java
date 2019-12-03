@@ -21,7 +21,6 @@ public class Main {
     
     public static void main(String[] args) {
         out.println("Test");
-        MainGUIForm main = new MainGUIForm();
         
     }
 }

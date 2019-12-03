@@ -7,6 +7,7 @@
 
 package me.noobstangofdusk.hs.ics4u.tpj;
 
+import java.util.Date;
 /**
  * Finance Entry Object for table initialization
  * 
@@ -19,10 +20,10 @@ package me.noobstangofdusk.hs.ics4u.tpj;
 public class finEntry {
     
     private String subjectt;
-    private String datee;
+    private Date datee;
     private double changee;
     private static double balancee;
-    private int favouritee;
+    private boolean favouritee;
     private String notess;
     
     private static int entryNumber;
@@ -34,7 +35,7 @@ public class finEntry {
         datee = null;
         changee = 0;
         balancee = 0;
-        favouritee = 0;
+        favouritee = false;
         notess = null;
         
         entryNumber++;
@@ -42,7 +43,7 @@ public class finEntry {
     }
     
     
-    public finEntry(String subject, String date, double change, int favourite, String notes) {
+    public finEntry(String subject, Date date, double change, boolean favourite, String notes) {
         subjectt = subject;
         datee = date;
         changee = change;
@@ -57,28 +58,62 @@ public class finEntry {
         return this.subjectt;
     }
     
-    public String getDate() {
+    public void changeSubject(String subject) {
+        subjectt = subject;
+    }
+    
+    public Date getDate() {
         return this.datee;
+    }
+    
+    public void changeDate(Date date) {
+        datee = date;
     }
     
     public double getChange() {
         return this.changee;
     }
     
+    public void setChange(double change) {
+        changee = change;
+    }
+    
     public static double getBalance() {
         return balancee;
     }
     
-    public int getFavourite() {
+    public static void changeBalance(double balance) {
+        balancee = balancee + balance;
+    }
+    
+    public static void setBalance(double balance) {
+        balancee = balance;
+    }
+    
+    public boolean getFavourite() {
         return this.favouritee;
+    }
+    
+    public void changeFavourite() {
+        if (favouritee) {
+            favouritee = false;
+        } else {
+            favouritee = true;
+        }
     }
     
     public String getNotes() {
         return this.notess;
     }
     
+    public void setNotes(String notes) {
+        notess = notes;
+    }
+    
     public int getENTRY_ID() {
         return this.ENTRY_ID;
     }
+    
+    
     
 }
