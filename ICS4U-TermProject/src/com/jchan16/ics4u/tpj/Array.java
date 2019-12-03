@@ -64,6 +64,7 @@ public class Array {
 
         }
     }
+    
 
     public int getCounter() {
         return counter;
