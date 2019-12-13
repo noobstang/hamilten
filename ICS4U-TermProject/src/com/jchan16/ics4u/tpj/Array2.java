@@ -13,17 +13,29 @@ import java.util.ArrayList;
  *
  * @author Jackie
  */
+<<<<<<< HEAD
 public class Array2 {
+=======
+public class Array {
+>>>>>>> b2351949a61f0b8e66b421f17e01dad50336a7e2
 
     private int counter;
     private ArrayList<Entries> Array2 = new ArrayList<Entries>();
 
+<<<<<<< HEAD
     public Array2(ResultSet a) {
+=======
+    public Array(ResultSet a) {
+>>>>>>> b2351949a61f0b8e66b421f17e01dad50336a7e2
         fill(a);
 
     }
 
+<<<<<<< HEAD
     public Array2(DatabaseDummy a) {
+=======
+    public Array(DatabaseDummy a) {
+>>>>>>> b2351949a61f0b8e66b421f17e01dad50336a7e2
         fill(a);
     }
 //needs database

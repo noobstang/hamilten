@@ -70,11 +70,6 @@ public class Array {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-<<<<<<< HEAD
-=======
-    }
-    
->>>>>>> b2351949a61f0b8e66b421f17e01dad50336a7e2
 
     }
 //dead don't use for now
