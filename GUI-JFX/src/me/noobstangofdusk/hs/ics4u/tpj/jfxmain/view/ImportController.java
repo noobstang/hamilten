@@ -4,12 +4,10 @@
  *  Copyright 2019 under the GNU 2.0 License
  *  All rights reserved.
  */
-package com.noobstangofdusk.hs.ics4u.tpj.jfxmain.view;
+package me.noobstangofdusk.hs.ics4u.tpj.jfxmain.view;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 /**
@@ -17,7 +15,7 @@ import javafx.fxml.Initializable;
  *
  * @author noobstang
  */
-public class UIRootController implements Initializable {
+public class ImportController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -26,9 +24,5 @@ public class UIRootController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
-    @FXML
-    private void exitAction(ActionEvent event) {
-    }
     
 }

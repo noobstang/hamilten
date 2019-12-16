@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.noobstangofdusk.hs.ics4u.tpj.jfx.test;
+package me.noobstangofdusk.hs.ics4u.tpj.jfx.test;
 
 import java.io.IOException;
 

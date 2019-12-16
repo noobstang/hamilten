@@ -4,7 +4,7 @@
  *  Copyright 2019 under the GNU 2.0 License
  *  All rights reserved.
  */
-package com.noobstangofdusk.hs.ics4u.tpj.jfxmain.view;
+package me.noobstangofdusk.hs.ics4u.tpj.jfxmain.view;
 
 import java.net.URL;
 import java.util.ResourceBundle;
