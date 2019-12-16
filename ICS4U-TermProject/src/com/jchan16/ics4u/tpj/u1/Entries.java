@@ -1,4 +1,4 @@
-package com.jchan16.ics4u.tpj;
+package com.jchan16.ics4u.tpj.u1;
 
 /**
  * Entry file - test

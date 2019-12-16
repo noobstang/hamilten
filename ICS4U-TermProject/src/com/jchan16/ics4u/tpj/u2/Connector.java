@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.jchan16.ics4u.tpj;
+package com.jchan16.ics4u.tpj.u2;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

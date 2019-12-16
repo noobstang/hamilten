@@ -70,45 +70,45 @@ public class Array {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
     }
     
->>>>>>> b2351949a61f0b8e66b421f17e01dad50336a7e2
+//>>>>>>> b2351949a61f0b8e66b421f17e01dad50336a7e2
 
     }
 //dead don't use for now
-    public int getCounter() {
-        return counter;
-    }
-
-    public void sortSubjectAD() {
-        for (int j = 1; j < getArray2().size(); j++) {
-            int key = j;
-            int ender = key - 1;
-            String key1 = getArray2().get(j).getSubject();
-            String ender1 = getArray2().get(ender).getSubject();
-            while (key >= 0 && key1.compareToIgnoreCase(ender1) > 0) {
-                //Dummy entries, copies  entries [key]
-                Entries p = new Entries();
-                p.changeEntries(getArray2().get(key).getId(), getArray2().get(key).getFavorite(),
-                        getArray2().get(key).getSubject(), getArray2().get(key).date(4), getArray2().get(key).getPrice().getFull(), getArray2().get(key).getNotes());
-                ///transfers entries[ender] to entries[key]
-                getArray2().get(key).changeEntries(getArray2().get(ender).getId(), getArray2().get(ender).getFavorite(),
-                        getArray2().get(ender).getSubject(), getArray2().get(ender).date(4), getArray2().get(ender).getPrice().getFull(),
-                        getArray2().get(ender).getNotes());
-                /// entries[ender] then takes info from entries p        
-                getArray2().get(ender).changeEntries(p.getId(), p.getFavorite(),
-                        p.getSubject(), p.date(4), p.getPrice().getFull(),
-                        p.getNotes());
-            }
-
-        }
-    }
+//    public int getCounter() {
+//        return counter;
+//    }
+//
+//    public void sortSubjectAD() {
+//        for (int j = 1; j < getArray2().size(); j++) {
+//            int key = j;
+//            int ender = key - 1;
+//            String key1 = getArray2().get(j).getSubject();
+//            String ender1 = getArray2().get(ender).getSubject();
+//            while (key >= 0 && key1.compareToIgnoreCase(ender1) > 0) {
+//                //Dummy entries, copies  entries [key]
+//                Entries p = new Entries();
+//                p.changeEntries(getArray2().get(key).getId(), getArray2().get(key).getFavorite(),
+//                        getArray2().get(key).getSubject(), getArray2().get(key).date(4), getArray2().get(key).getPrice().getFull(), getArray2().get(key).getNotes());
+//                ///transfers entries[ender] to entries[key]
+//                getArray2().get(key).changeEntries(getArray2().get(ender).getId(), getArray2().get(ender).getFavorite(),
+//                        getArray2().get(ender).getSubject(), getArray2().get(ender).date(4), getArray2().get(ender).getPrice().getFull(),
+//                        getArray2().get(ender).getNotes());
+//                /// entries[ender] then takes info from entries p        
+//                getArray2().get(ender).changeEntries(p.getId(), p.getFavorite(),
+//                        p.getSubject(), p.date(4), p.getPrice().getFull(),
+//                        p.getNotes());
+//            }
+//
+//        }
+//    }
     //public void printArray(){
     //for(int j=0; j<getCounter();j++){
     //System.out.println(Array2[j].getId()+" "+Array2[j].getFavorite()
     //+" "+Array2[j].getSubject()+" "+Array2[j].date(4)+" "Array2[j].getPrice().getFull()+" "+Array2[j].getNotes());
     //}
     //}
-}
+//}

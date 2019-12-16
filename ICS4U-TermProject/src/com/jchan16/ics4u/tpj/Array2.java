@@ -13,29 +13,29 @@ import java.util.ArrayList;
  *
  * @author Jackie
  */
-<<<<<<< HEAD
+//<<<<<<< HEAD
 public class Array2 {
-=======
+//=======
 public class Array {
->>>>>>> b2351949a61f0b8e66b421f17e01dad50336a7e2
+//>>>>>>> b2351949a61f0b8e66b421f17e01dad50336a7e2
 
     private int counter;
     private ArrayList<Entries> Array2 = new ArrayList<Entries>();
 
-<<<<<<< HEAD
-    public Array2(ResultSet a) {
-=======
+//<<<<<<< HEAD
+//    public Array2(ResultSet a) {
+//=======
     public Array(ResultSet a) {
->>>>>>> b2351949a61f0b8e66b421f17e01dad50336a7e2
+//>>>>>>> b2351949a61f0b8e66b421f17e01dad50336a7e2
         fill(a);
 
     }
 
-<<<<<<< HEAD
-    public Array2(DatabaseDummy a) {
-=======
+//<<<<<<< HEAD
+//    public Array2(DatabaseDummy a) {
+//=======
     public Array(DatabaseDummy a) {
->>>>>>> b2351949a61f0b8e66b421f17e01dad50336a7e2
+//>>>>>>> b2351949a61f0b8e66b421f17e01dad50336a7e2
         fill(a);
     }
 //needs database
@@ -177,7 +177,9 @@ public class Array {
         //+" "+Array2[j].getSubject()+" "+Array2[j].date(4)+" "Array2[j].getPrice().getFull()+" "+Array2[j].getNotes());
         //}
         //}
-   // }
-}
+        }
+    
+    }
 
-       }
+}
+       
