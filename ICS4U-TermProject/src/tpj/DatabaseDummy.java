@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -24,12 +22,14 @@ public class DatabaseDummy {
     public ArrayList<Entries> test2= new ArrayList<Entries>();
 // change 21 to any number to increase size of array
     public DatabaseDummy() {
-        for(int p=0;p<21;p++){
+        for(int p=0;p<10;p++){
         test2.add(new Entries(p,coin(),randoSub(),randoDate(),randoAmount(coin()),randoNotes()));
         Entries z= new Entries(test2.get(p).getId(),test2.get(p).getFavorite(),test2.get(p).getSubject()
         ,test2.get(p).date(4),test2.get(p).showPrice2(),test2.get(p).getNotes());
         test.add(z);
         }
+        
+        
         //this one was for database so that the id matches with row number in db
         for(int p=0; p<test2.size();p++){
             test2.get(p).changeId();
@@ -67,7 +67,7 @@ public class DatabaseDummy {
 
     public String randoSub() {
         Random rand = new Random();
-        int seer = rand.nextInt(11-1);
+        int seer = rand.nextInt(10);
         switch (seer) {
             case 1:
                 return "Arts";
@@ -108,13 +108,13 @@ public class DatabaseDummy {
 
     public boolean coin() {
         Random rand = new Random();
-        int seer = rand.nextInt(3);
+        int seer = rand.nextInt(2)+1;
         switch (seer) {
             case 1:
                 return false;
 
             case 2:
-                return false;
+                return true;
 
             default:
                 return true;
@@ -129,6 +129,18 @@ public class DatabaseDummy {
         int m = rand.nextInt(11)+1;
         //String m2=Integer.toString(d);
         int y = rand.nextInt(100)+2000;
+        //String y2=Integer.toString(d);
+
+        return d + "/" + m + "/" + y;
+    }
+    
+    public String randoDate2() {
+        Random rand = new Random();
+        int d = rand.nextInt(30)+1;
+        //String d2= Integer.toString(d);
+        int m = rand.nextInt(11)+1;
+        //String m2=Integer.toString(d);
+        int y = 2015;
         //String y2=Integer.toString(d);
 
         return d + "/" + m + "/" + y;
@@ -149,14 +161,17 @@ public class DatabaseDummy {
         Double dub = new Double(d);
         Double dub2 = dub + c;
         
-        String dub3 = f.format(dub2);
-
-        if (a == true && dub2 < 0) {
+        
+        if (a == true && dub2 > 0) {
             b = "+";
             
         } if(a== false) {
             b = "-";
-        }
+        }  
+        
+        String dub3 = f.format(dub2);
+
+        
         
       return b+dub3 ;
     }
@@ -170,108 +185,3 @@ public class DatabaseDummy {
            // }
     
 }
-=======
-=======
->>>>>>> b2351949a61f0b8e66b421f17e01dad50336a7e2
-package com.jchan16.ics4u.tpj;
-
-/**
- *
- * @author earl
- */
-import java.util.ArrayList;
-import java.util.Random;
-
-public class DatabaseDummy {
-
-    private ArrayList<Entries> test = new ArrayList<Entries>();
-    private int Idcounter;
-
-    public DatabaseDummy() {
-        
-    }
-
-    public void changeCounter() {
-        counter++;
-    }
-
-    public int getCounter() {
-        return Idcounter;
-    }
-
-    public String randoSub() {
-        Random rand = new Random();
-        int seer = rand.nextInt(0 - 10);
-        switch (seer) {
-            case 0:
-                return "Arts";
-                break;
-            case 1:
-                return "Food";
-                break;
-            case 2:
-                return "Technology";
-                break;
-            case 3:
-                return "Housing";
-                break;
-            case 4:
-                return "Taxes";
-                break;
-            case 5: 
-                return "Hobbies";
-                break;
-            case 6:
-                return "Misc";
-                break;
-            case 7: 
-                return "Stationary";
-                break;
-            case 8: 
-                return "Bills";
-                break;
-            case 9:
-                return "Alcohol";
-                break;
-            default: return "Glue";
-            break;
-        }
-    }
-    public boolean coin(){
-        Random rand= new Random();
-        int seer=rand.nextInt(0-2);
-        switch (seer){
-            case 0:
-                return true;
-                break;
-            case 1:
-                return false;
-                break;
-            default: 
-                return false;
-                break;
-        }    
-    }
-    
-    public String randoDate(){
-    Random rand= new Random();
-    int d= rand.nextInt(1-32);
-    int m=rand.nextInt(1-13);
-    int y=rand.nextInt(1000-2020);
-    
-    return d+"/"+m+"/"+y;
-    }
-    
-    public String randoNotes(){
-        return "";
-    }
-    
-    public String getDummy(){
-        
-    }
-    
-}
-<<<<<<< HEAD
->>>>>>> b2351949a61f0b8e66b421f17e01dad50336a7e2
-=======
->>>>>>> b2351949a61f0b8e66b421f17e01dad50336a7e2
