@@ -4,20 +4,28 @@
  *  Copyright 2019 under the GNU 2.0 License
  *  All rights reserved.
  */
-package me.noobstangofdusk.hs.ics4u.tpj.jfxmain.view;
+package me.noobstangofdusk.hs.ics4u.tpj.jfx.fxml;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Tab;
 
 /**
  * FXML Controller class
  *
  * @author noobstang
  */
-public class UIRootController implements Initializable {
+public class RootPanelController implements Initializable {
+
+    @FXML
+    private Tab tabFinance;
+    @FXML
+    private Tab tabReport;
+    @FXML
+    private Tab tabAdd;
 
     /**
      * Initializes the controller class.
@@ -28,7 +36,8 @@ public class UIRootController implements Initializable {
     }    
 
     @FXML
-    private void exitAction(ActionEvent event) {
+    private void tabAddAction(Event event) {
+        
     }
     
 }

@@ -13,6 +13,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
@@ -72,7 +73,7 @@
                      <children>
                         <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <TableView editable="true">
+                              <TableView style="-fx-background-color: lightgray;">
                                 <columns>
                                   <TableColumn prefWidth="96.3026123046875" text="Entry #" />
                                   <TableColumn prefWidth="92.50747680664062" text="Subject" />
@@ -91,13 +92,13 @@
                                     <Separator prefHeight="0.0" prefWidth="11.0" />
                                     <ButtonBar prefHeight="40.0" prefWidth="200.0">
                                       <buttons>
-                                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="85.0" text="Search..." />
+                                        <Button fx:id="btnMainSearch" mnemonicParsing="false" onAction="#btnMainSearchAction" prefHeight="31.0" prefWidth="85.0" text="Search..." />
                                       </buttons>
                                     </ButtonBar>
                                     <ButtonBar prefHeight="40.0" prefWidth="930.0">
                                       <buttons>
-                                          <Button mnemonicParsing="false" text="Import" />
-                                        <Button mnemonicParsing="false" text="Export" />
+                                          <Button fx:id="btnMainImport" mnemonicParsing="false" onAction="#btnMainImportAction" text="Import" />
+                                        <Button fx:id="btnMainExport" mnemonicParsing="false" onAction="#btnMainExportAction" text="Export" />
                                       </buttons>
                                     </ButtonBar>
                                     <Separator disable="true" opacity="0.0" />
@@ -121,7 +122,11 @@
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <ListView layoutY="22.0" prefHeight="366.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <ScrollPane layoutX="10.699999809265137" layoutY="10.699999809265137" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <content>
+                                                      <ListView fx:id="lsvReportTotIncome" prefHeight="366.0" prefWidth="200.0" style="-fx-background-color: lightgreen;" />
+                                                   </content>
+                                                </ScrollPane>
                                              </children>
                                           </AnchorPane>
                                     </content>
@@ -130,7 +135,11 @@
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <ListView layoutX="10.0" layoutY="10.0" prefHeight="366.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <ScrollPane layoutX="10.699999809265137" layoutY="10.699999809265137" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <content>
+                                                      <ListView fx:id="lsvReportTotExpense" prefHeight="366.0" prefWidth="200.0" style="-fx-background-color: pink;" />
+                                                   </content>
+                                                </ScrollPane>
                                              </children>
                                           </AnchorPane>
                                     </content>
@@ -139,14 +148,18 @@
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <ListView layoutY="31.0" prefHeight="366.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <ScrollPane layoutX="10.699999809265137" layoutY="10.699999809265137" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <content>
+                                                      <ListView fx:id="lsvReportTotOverall" prefHeight="366.0" prefWidth="200.0" style="-fx-background-color: lightgray;" />
+                                                   </content>
+                                                </ScrollPane>
                                              </children>
                                           </AnchorPane>
                                     </content>
                                   </TitledPane>
                                 </panes>
                               </Accordion>
-                              <TableView prefHeight="476.0" prefWidth="200.0">
+                              <TableView prefHeight="476.0" prefWidth="200.0" style="-fx-background-color: lightgray;">
                                 <columns>
                                   <TableColumn prefWidth="68.0" text="Date" />
                                   <TableColumn prefWidth="130.0" text="Balance Change" />
@@ -172,7 +185,7 @@
                         </HBox>
                         <ButtonBar prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="15.0">
                           <buttons>
-                            <Button mnemonicParsing="false" text="Customize" />
+                            <Button fx:id="btnReportGraphCustomize" mnemonicParsing="false" onAction="#btnReportGraphCustomizeAction" text="Customize" />
                           </buttons>
                         </ButtonBar>
                      </children></AnchorPane>
@@ -191,17 +204,17 @@
                               </Label>
                               <Label layoutX="32.0" layoutY="48.0" text="Username:" AnchorPane.leftAnchor="32.0" AnchorPane.topAnchor="64.0" />
                               <Label layoutX="32.0" layoutY="88.0" text="Password:" AnchorPane.leftAnchor="32.0" AnchorPane.topAnchor="92.0" />
-                              <TextField layoutX="115.0" layoutY="59.0" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="59.0" />
-                              <PasswordField layoutX="115.0" layoutY="95.0" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="95.0" />
-                              <Button layoutX="229.0" layoutY="133.0" mnemonicParsing="false" text="Log In" AnchorPane.leftAnchor="229.0" AnchorPane.topAnchor="132.0" />
-                              <Hyperlink layoutX="162.0" layoutY="166.0" text="Forgot Password?" AnchorPane.leftAnchor="162.0" AnchorPane.topAnchor="166.0" />
+                              <TextField layoutX="115.0" layoutY="59.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="59.0" />
+                              <PasswordField layoutX="115.0" layoutY="95.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="95.0" />
+                              <Button fx:id="btnAccountLogin" layoutX="229.0" layoutY="133.0" mnemonicParsing="false" onAction="#btnAccointLoginAction" text="Log In" AnchorPane.leftAnchor="229.0" AnchorPane.topAnchor="132.0" />
+                              <Hyperlink fx:id="hyplnAccountForgot" layoutX="162.0" layoutY="166.0" onAction="#hyplnAccountForgotAction" text="Forgot Password?" AnchorPane.leftAnchor="162.0" AnchorPane.topAnchor="166.0" />
                            </children>
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
                               <ImageView fitHeight="720.0" pickOnBounds="true" preserveRatio="true" rotate="16.5" translateX="-100.0" x="100.0" y="230.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <image>
-                                    <Image url="@../../../../../../../../../../../Pictures/WDTUPIAN/背景/01936_bluetiles_1920x1080.jpg" />
+                                    <Image url="@../../../../../../../../../ICS4U-TermProject/resources/01936_bluetiles_1920x1080.jpg" />
                                  </image>
                               </ImageView>
                            </children>
