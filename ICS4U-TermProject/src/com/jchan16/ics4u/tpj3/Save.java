@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.jchan16.ics4u.tpj2;
+package com.jchan16.ics4u.tpj3;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
