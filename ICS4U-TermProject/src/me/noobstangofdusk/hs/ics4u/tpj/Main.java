@@ -6,7 +6,7 @@
  */
 
 package me.noobstangofdusk.hs.ics4u.tpj;
-//import com.noobstangofdusk.hs.ics4u.tpj.jfxmain.view.FXMLTestController;
+
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -65,45 +65,3 @@ public class Main extends Application {
 }
 
 
-/*
- * https://docs.oracle.com/javase/8/scene-builder-2/work-with-java-ides/sb-with-nb.htm#JSBID108
-
-import java.io.FileInputStream;
-import java.io.IOException;
- 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
- 
-public class TextAreaExample extends Application
-{
-    public static void main(String[] args) 
-    {
-        Application.launch(args);
-    }
-     
-    @Override
-    public void start(Stage stage) throws IOException 
-    {
-        // Create the FXMLLoader 
-        FXMLLoader loader = new FXMLLoader();
-        // Path to the FXML File
-        String fxmlDocPath = "Path-To-Your-FXML-Files/TextAreaExample.fxml";
-        FileInputStream fxmlStream = new FileInputStream(fxmlDocPath);
-         
-        // Create the Pane and all Details
-        AnchorPane root = (AnchorPane) loader.load(fxmlStream);
-         
-        // Create the Scene
-        Scene scene = new Scene(root);
-        // Set the Scene to the Stage
-        stage.setScene(scene);
-        // Set the Title to the Stage
-        stage.setTitle("A SceneBuilder Example");
-        // Display the Stage
-        stage.show();
-    }
-}
-*/
