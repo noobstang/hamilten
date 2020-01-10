@@ -14,6 +14,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TitledPane;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -46,6 +47,8 @@ public class TabReportController implements Initializable {
     private TableColumn<?, ?> reportLsAmount;
     @FXML
     private TableColumn<?, ?> reportLsDate;
+    @FXML
+    private AnchorPane reportGraphPane;
 
     /**
      * Initializes the controller class.
@@ -53,6 +56,7 @@ public class TabReportController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
     }    
     
 }
