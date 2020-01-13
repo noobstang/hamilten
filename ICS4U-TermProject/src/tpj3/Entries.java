@@ -1,4 +1,4 @@
-package com.jchan16.ics4u.tpj2;
+package com.jchan.ics4u.tpj3;
 
 /**
  * Entry file - test https://github.com/noobstang/hamilten.git
@@ -57,17 +57,17 @@ public class Entries {
         STATIC_ID = entryCount;
     }
 
-    public Entries(boolean f, String s, String d, String a, String n) {
-        id = entryCount++;
-        favorite = f;
-        subject = s;
-        time = new Date(d);
-        price = new Amount(a);
-        notes = n;
-
-        entryCount++;
-        STATIC_ID = entryCount;
-    }
+//    public Entries(boolean f, String s, String d, String a, String n) {
+//        id = entryCount++;
+//        favorite = f;
+//        subject = s;
+//        time = new Date(d);
+//        price = new Amount(a);
+//        notes = n;
+//
+//        entryCount++;
+//        STATIC_ID = entryCount;
+//    }
 
     public int getId() {
         return id;
@@ -161,7 +161,7 @@ public class Entries {
     }
 
     public String getEntrySave() {
-        return getId() + "|" + getFavorite() + "|" + getSubject() + "|" + date(4) + "|" + price.getFull() + "|" + getNotes();
+        return "-"+getId() + "|" + getFavorite() + "|" + getSubject() + "|" + date(4) + "|" + price.getFull() + "|" + getNotes();
     }
 
     public void changeFavorite(boolean a) {
