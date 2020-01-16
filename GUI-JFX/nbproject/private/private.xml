@@ -5,6 +5,9 @@
         <group name="ICS4U-hamilten">
             <file>file:/home/earl/Documents/hamilten/GUI-JFX/src/me/noobstangofdusk/hs/ics4u/tpj/jfxmain/Start.java</file>
         </group>
-        <group/>
+        <group>
+            <file>file:/home/noobstang/gan/TermProjectGit/GUI-JFX/src/me/noobstangofdusk/hs/ics4u/tpj/jfx/fxml/RootPanelController.java</file>
+            <file>file:/home/noobstang/gan/TermProjectGit/GUI-JFX/src/me/noobstangofdusk/hs/ics4u/tpj/jfx/fxml/tab/TabMainController.java</file>
+        </group>
     </open-files>
 </project-private>

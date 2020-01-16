@@ -11,7 +11,12 @@ import java.util.ResourceBundle;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -21,11 +26,55 @@ import javafx.scene.control.Tab;
 public class RootPanelController implements Initializable {
 
     @FXML
-    private Tab tabFinance;
+    private MenuBar MenuBar;
     @FXML
-    private Tab tabReport;
+    private Menu MBFile;
     @FXML
-    private Tab tabAdd;
+    private MenuItem mbNewFile;
+    @FXML
+    private MenuItem mbOpenFile;
+    @FXML
+    private MenuItem mbSaveFile;
+    @FXML
+    private MenuItem mbSaveFileAs;
+    @FXML
+    private MenuItem mbQuit;
+    @FXML
+    private Menu MBEdit;
+    @FXML
+    private MenuItem mbCopy;
+    @FXML
+    private MenuItem mbPaste;
+    @FXML
+    private MenuItem mbUndo;
+    @FXML
+    private MenuItem mbDelete;
+    @FXML
+    private Menu MBAccount;
+    @FXML
+    private MenuItem mbLogin;
+    @FXML
+    private MenuItem mbLogout;
+    @FXML
+    private Menu MBHelp;
+    @FXML
+    private MenuItem mbAbout;
+    @FXML
+    private TabPane MainTabPane;
+    @FXML
+    private Tab TabFinance;
+    @FXML
+    private AnchorPane tabFinanceAPane;
+    @FXML
+    private Tab TabReport;
+    @FXML
+    private AnchorPane tabReportAPane;
+    @FXML
+    private Tab TabAccount;
+    @FXML
+    private AnchorPane tabAccountAPane;
+    @FXML
+    private Tab TabAdd;
 
     /**
      * Initializes the controller class.
@@ -36,7 +85,7 @@ public class RootPanelController implements Initializable {
     }    
 
     @FXML
-    private void tabAddAction(Event event) {
+    private void TANewAction(Event event) {
         
     }
     
