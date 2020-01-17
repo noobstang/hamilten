@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.jchan16.ics4u.tpj3;
+package com.jchan.ics4u.tpj4;
 import java.util.ArrayList;
 /**
  *
@@ -74,7 +74,16 @@ public ArrayList<Entries> getNov(){
 public ArrayList<Entries> getDec(){
  return table[11][0];   
 }
-
+//How this would have worked, this worked along side year array in array2
+//each element in year array would get this class
+//the method makeCalnderList would have read the month and day of an entry
+//and then send it to the array it belonged to ex if it was january it would go to
+//table[0][0]
+//then table table[0][0] entries would be sorted by day values lowest to highest
+//method dateL would have been printing out all the 2d arrays of each year in year array
+//from lowest to highest
+//but david found the fulldayvalue solution
+//so now this is a dead class
 public void sortMonthByDayAD(ArrayList<Entries> a){
    for (int j = 1; j < a.size(); j++) {
             int key = j;
@@ -131,7 +140,16 @@ public void sortMonthByDayAD(ArrayList<Entries> a){
             }
         }
     }
-
+//How this would have worked, this worked along side year array in array2
+//each element in year array would get this class
+//the method makeCalnderList would have read the month and day of an entry
+//and then send it to the array it belonged to ex if it was january it would go to
+//table[0][0]
+//then table table[0][0] entries would be sorted by day values lowest to highest
+//method dateL would have been printing out all the 2d arrays of each year in year array
+//from lowest to highest
+//but david found the fulldayvalue solution
+//so now this is a dead class
 public void sortMonthByDayUP(ArrayList<Entries> a){
    for (int j = 1; j < a.size(); j++) {
             int key = j;
@@ -188,7 +206,7 @@ public void sortMonthByDayUP(ArrayList<Entries> a){
             }
         }
     }
-
+//prints out each entry in each 2d array cell
 public void displayMonth_DayAD(){
     for(int j=0; j<12; j++){
       switch(j){

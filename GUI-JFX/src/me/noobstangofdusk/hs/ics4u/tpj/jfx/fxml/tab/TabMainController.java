@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -44,6 +45,8 @@ public class TabMainController implements Initializable {
     private Button mainBtnImport;
     @FXML
     private Button mainBtnExport;
+    @FXML
+    private AnchorPane tabFinance__APane;
 
     /**
      * Initializes the controller class.

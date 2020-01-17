@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.jchan16.ics4u.tpj3;
+package com.jchan16.ics4u.tpj.u3;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -20,9 +20,9 @@ public class DatabaseDummy {
     private ArrayList<Entries> test = new ArrayList<Entries>();
     private int Idcounter;
     public ArrayList<Entries> test2= new ArrayList<Entries>();
-// change 21 to any number to increase size of array
+// change p<# to any number to increase size of array
     public DatabaseDummy() {
-        for(int p=0;p<5;p++){
+        for(int p=0;p<15;p++){
         test2.add(new Entries(p,coin(),randoSub(),randoDate(),randoAmount(coin()),randoNotes()));
         Entries z= new Entries(test2.get(p).getId(),test2.get(p).getFavorite(),test2.get(p).getSubject()
         ,test2.get(p).date(4),test2.get(p).showPrice2(),test2.get(p).getNotes());
@@ -168,6 +168,14 @@ public class DatabaseDummy {
     public void getEntry(Entries a){
         System.out.println(a.getId() + " " + a.getFavorite() + " " + a.getSubject() + " " + a.date(4) + " " + a.getPrice().getFull() + " " + a.getNotes());
 }
+    
+    public ArrayList<String> getCopy(){
+        ArrayList<String> p= new ArrayList<String>();
+        for(int i=0; i<test2.size();i++){
+        p.add(test2.get(i).getEntrySave());
+        }
+        return p;
+    }
     //for(int j=0; j<dum.test2.size(); j++){
     //con.insertData(dum.test2.get(j).getId(),dum.test2.get(j).getFavorite(),dum.test2.get(j).getSubject(),
    //dum.test2.get(j).date(4),dum.test2.get(j).showPrice2(),dum.test2.get(j).getNotes());

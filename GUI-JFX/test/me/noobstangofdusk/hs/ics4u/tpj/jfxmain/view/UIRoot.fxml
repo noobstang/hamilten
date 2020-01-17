@@ -13,7 +13,6 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
@@ -122,11 +121,7 @@
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <ScrollPane layoutX="10.699999809265137" layoutY="10.699999809265137" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                   <content>
-                                                      <ListView fx:id="lsvReportTotIncome" prefHeight="366.0" prefWidth="200.0" style="-fx-background-color: lightgreen;" />
-                                                   </content>
-                                                </ScrollPane>
+                                                <ListView fx:id="lsvReportTotIncome" layoutX="10.399999618530273" layoutY="10.399999618530273" prefHeight="399.0" prefWidth="200.0" style="-fx-background-color: lightgreen;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                              </children>
                                           </AnchorPane>
                                     </content>
@@ -135,11 +130,7 @@
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <ScrollPane layoutX="10.699999809265137" layoutY="10.699999809265137" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                   <content>
-                                                      <ListView fx:id="lsvReportTotExpense" prefHeight="366.0" prefWidth="200.0" style="-fx-background-color: pink;" />
-                                                   </content>
-                                                </ScrollPane>
+                                                <ListView fx:id="lsvReportTotExpense" layoutX="10.399999618530273" layoutY="10.399999618530273" prefHeight="399.0" prefWidth="200.0" style="-fx-background-color: pink;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                              </children>
                                           </AnchorPane>
                                     </content>
@@ -148,11 +139,7 @@
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <ScrollPane layoutX="10.699999809265137" layoutY="10.699999809265137" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                   <content>
-                                                      <ListView fx:id="lsvReportTotOverall" prefHeight="366.0" prefWidth="200.0" style="-fx-background-color: lightgray;" />
-                                                   </content>
-                                                </ScrollPane>
+                                                <ListView fx:id="lsvReportTotOverall" layoutX="10.399999618530273" layoutY="10.399999618530273" prefHeight="399.0" prefWidth="200.0" style="-fx-background-color: lightgray;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                              </children>
                                           </AnchorPane>
                                     </content>

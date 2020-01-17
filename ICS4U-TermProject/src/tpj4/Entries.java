@@ -1,4 +1,4 @@
-package com.jchan16.ics4u.tpj3;
+package com.jchan.ics4u.tpj4;
 
 /**
  * Entry file - test https://github.com/noobstang/hamilten.git
@@ -57,17 +57,17 @@ public class Entries {
         STATIC_ID = entryCount;
     }
 
-    public Entries(boolean f, String s, String d, String a, String n) {
-        id = entryCount++;
-        favorite = f;
-        subject = s;
-        time = new Date(d);
-        price = new Amount(a);
-        notes = n;
-
-        entryCount++;
-        STATIC_ID = entryCount;
-    }
+//    public Entries(boolean f, String s, String d, String a, String n) {
+//        id = entryCount++;
+//        favorite = f;
+//        subject = s;
+//        time = new Date(d);
+//        price = new Amount(a);
+//        notes = n;
+//
+//        entryCount++;
+//        STATIC_ID = entryCount;
+//    }
 
     public int getId() {
         return id;
@@ -96,7 +96,7 @@ public class Entries {
     public Date getDate() {
         return time;
     }
-
+//int determines what String date variable you get (1=day,2=month,3=year,4=full string representation)
     public String date(int lmao) {
         switch (lmao) {
             case 1:
@@ -115,7 +115,7 @@ public class Entries {
                 return "error";
         }
     }
-
+//int determines what int date variable you get (1=day,2=month,3=year,4=fulldayValue)
     public int date2(int lmao) {
         switch (lmao) {
             case 1:
@@ -159,35 +159,35 @@ public class Entries {
         System.out.print(getId() + " " + getFavorite() + " " + getSubject() + " " + date(4) + " " + price.getFull() + " " + getNotes());
 
     }
-
+//used mostly in text file io
     public String getEntrySave() {
-        return getId() + "|" + getFavorite() + "|" + getSubject() + "|" + date(4) + "|" + price.getFull() + "|" + getNotes();
+        return "-"+getId() + "|" + getFavorite() + "|" + getSubject() + "|" + date(4) + "|" + price.getFull() + "|" + getNotes();
     }
-
+//used with respective edit methods in array2 class
     public void changeFavorite(boolean a) {
         favorite = a;
     }
-
+//used with respective edit methods in array2 class
     public void changePrice(String a) {
         getPrice().editAmount(a);
     }
-
+//used with respective edit methods in array2 class
     public void changeDate(String a) {
         getDate().editDate(a);
     }
-
+//used with respective edit methods in array2 class
     public void changeSubject(String a) {
         subject = a;
     }
-
+//used with respective edit methods in array2 class
     public void changeNotes(String a) {
         notes = a;
     }
-    
+    //Obsolete
     public void setEntryCount(int a){
      entryCount=a;    
     }
-    
+    //obsolete
     public int getEntryCount(){
         return entryCount;
     }

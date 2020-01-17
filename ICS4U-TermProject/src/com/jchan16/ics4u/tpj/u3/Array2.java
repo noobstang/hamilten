@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.jchan16.ics4u.tpj3;
+package com.jchan16.ics4u.tpj.u3;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,14 +28,19 @@ public class Array2 {
     private ArrayList<Entries> Array3 = new ArrayList<Entries>();
     //display results of whatever sort/search
     private ArrayList<Entries> result = new ArrayList<Entries>();
-
+//not used anymore but it would have been used to get unique years and store here
     private ArrayList<Integer> years = new ArrayList<Integer>();
-
+//Array that stores simplified edits count
     private ArrayList<String> edits = new ArrayList<String>();
+//Array that stores the new edited string of the edited entry 
+    private ArrayList<String> edits2 = new ArrayList<String>();
     //index for results:
     //0=empty results, 1=array2 copied, 2=sorted results,3=search
     private boolean SearchStatus;
     private boolean ResultStatus;
+//Used mostly in add/substracing entries in edit methods
+    private int entryCount = 0;
+
 //    private ArrayList<Integer> years = new ArrayList<Integer>();
 //    private ArrayList<Month_Day> DateALive = new ArrayList<Month_Day>();
 //    private final int Jan = 1;
@@ -50,10 +55,29 @@ public class Array2 {
 //    private final int Oct = 10;
 //    private final int Nov = 11;
 //    private final int Dec = 12;
+    public ArrayList<String> getEditedStringArray() {
+        return edits2;
+    }
+
+    public void subtractCount2() {
+        entryCount--;
+    }
+
+    public void addCount2() {
+        entryCount++;
+    }
 
     public void clearSearch() {
         Array3.clear();
         revertSearchStatus();
+    }
+
+    public void setCount(int a) {
+        entryCount = a;
+    }
+
+    public int getCount2() {
+        return entryCount;
     }
 
     public ArrayList<String> getEdits() {
@@ -72,6 +96,14 @@ public class Array2 {
         SearchStatus = false;
     }
 
+    public boolean getEditStatus() {
+        if (getEdits().size() < 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public Array2(ResultSet a) {
         fill(a);
 
@@ -79,6 +111,16 @@ public class Array2 {
 
     public Array2(DatabaseDummy a) {
         fill(a);
+        SearchStatus = false;
+        ResultStatus = false;
+    }
+
+    public Array2(ArrayList<Entries> b) {
+        fill(b);
+
+    }
+
+    public Array2() {
         SearchStatus = false;
         ResultStatus = false;
     }
@@ -117,6 +159,14 @@ public class Array2 {
         }
     }
 
+    public void fill(ArrayList<Entries> a) {
+        for (int p = 0; p < a.size(); p++) {
+            Array2.add(new Entries());
+            Array2.get(p).changeEntries(a.get(p).getId(), a.get(p).getFavorite(), a.get(p).getSubject(),
+                    a.get(p).date(4), a.get(p).getPrice().getFull(), a.get(p).getNotes());
+        }
+    }
+
     public void fill2(ArrayList<Entries> a) {
         for (int p = 0; p < a.size(); p++) {
 
@@ -124,6 +174,7 @@ public class Array2 {
             result.get(p).changeEntries(a.get(p).getId(), a.get(p).getFavorite(), a.get(p).getSubject(),
                     a.get(p).date(4), a.get(p).getPrice().getFull(), a.get(p).getNotes());
         }
+        changeResultStatus();
     }
 
     public void fill3(ArrayList<Entries> a) {
@@ -133,6 +184,7 @@ public class Array2 {
             Array3.get(p).changeEntries(a.get(p).getId(), a.get(p).getFavorite(), a.get(p).getSubject(),
                     a.get(p).date(4), a.get(p).getPrice().getFull(), a.get(p).getNotes());
         }
+        changeSearchStatus();
     }
 
     public void clearResults() {
@@ -420,6 +472,115 @@ public class Array2 {
     }
 ///run twice to work
 
+    public void RsortYear() {
+        fill2(Array2);
+        for (int j = 1; j < getResults().size(); j++) {
+            int key = j;
+            int ender = key - 1;
+            int key1 = Integer.parseInt(getResults().get(key).date(3));
+
+            int ender1 = Integer.parseInt(getResults().get(ender).date(3));
+
+            if (key == 1) {
+                while (ender == 0 && key1 > ender1) {
+
+                    //Dummy entries, copies  entries [key]
+                    Entries p = new Entries();
+                    p.changeEntries(getResults().get(key).getId(), getResults().get(key).getFavorite(),
+                            getResults().get(key).getSubject(), getResults().get(key).date(4), getResults().get(key).getPrice().getFull(), getResults().get(key).getNotes());
+
+                    ///transfers entries[ender] to entries[key]
+                    getResults().get(key).changeEntries(getResults().get(ender).getId(), getResults().get(ender).getFavorite(),
+                            getResults().get(ender).getSubject(), getResults().get(ender).date(4), getResults().get(ender).getPrice().getFull(),
+                            getResults().get(ender).getNotes());
+                    //entries[ender] then takes info from entries p or entries k       
+                    getResults().get(ender).changeEntries(p.getId(), p.getFavorite(),
+                            p.getSubject(), p.date(4), p.getPrice().getFull(),
+                            p.getNotes());
+
+                    ender--;
+                }
+            }
+            if (key > 1) {
+                while (ender > 0 && key1 > ender1) {
+
+                    //Dummy entries, copies  entries [key]
+                    Entries p = new Entries();
+                    p.changeEntries(getResults().get(key).getId(), getResults().get(key).getFavorite(),
+                            getResults().get(key).getSubject(), getResults().get(key).date(4), getResults().get(key).getPrice().getFull(), getResults().get(key).getNotes());
+
+                    ///transfers entries[ender] to entries[key]
+                    getResults().get(key).changeEntries(getResults().get(ender).getId(), getResults().get(ender).getFavorite(),
+                            getResults().get(ender).getSubject(), getResults().get(ender).date(4), getResults().get(ender).getPrice().getFull(),
+                            getResults().get(ender).getNotes());
+                    //entries[ender] then takes info from entries p or entries k       
+                    getResults().get(ender).changeEntries(p.getId(), p.getFavorite(),
+                            p.getSubject(), p.date(4), p.getPrice().getFull(),
+                            p.getNotes());
+
+                    ender--;
+                    key--;
+                    key1 = Integer.parseInt(getResults().get(key).date(3));
+                    ender1 = Integer.parseInt(getResults().get(ender).date(3));
+                }
+            }
+        }
+    }
+
+    public void RsortYearGhost() {
+        for (int j = 1; j < getResults().size(); j++) {
+            int key = j;
+            int ender = key - 1;
+            int key1 = Integer.parseInt(getResults().get(key).date(3));
+
+            int ender1 = Integer.parseInt(getResults().get(ender).date(3));
+
+            if (key == 1) {
+                while (ender == 0 && key1 > ender1) {
+
+                    //Dummy entries, copies  entries [key]
+                    Entries p = new Entries();
+                    p.changeEntries(getResults().get(key).getId(), getResults().get(key).getFavorite(),
+                            getResults().get(key).getSubject(), getResults().get(key).date(4), getResults().get(key).getPrice().getFull(), getResults().get(key).getNotes());
+
+                    ///transfers entries[ender] to entries[key]
+                    getResults().get(key).changeEntries(getResults().get(ender).getId(), getResults().get(ender).getFavorite(),
+                            getResults().get(ender).getSubject(), getResults().get(ender).date(4), getResults().get(ender).getPrice().getFull(),
+                            getResults().get(ender).getNotes());
+                    //entries[ender] then takes info from entries p or entries k       
+                    getResults().get(ender).changeEntries(p.getId(), p.getFavorite(),
+                            p.getSubject(), p.date(4), p.getPrice().getFull(),
+                            p.getNotes());
+
+                    ender--;
+                }
+            }
+            if (key > 1) {
+                while (ender > 0 && key1 > ender1) {
+
+                    //Dummy entries, copies  entries [key]
+                    Entries p = new Entries();
+                    p.changeEntries(getResults().get(key).getId(), getResults().get(key).getFavorite(),
+                            getResults().get(key).getSubject(), getResults().get(key).date(4), getResults().get(key).getPrice().getFull(), getResults().get(key).getNotes());
+
+                    ///transfers entries[ender] to entries[key]
+                    getResults().get(key).changeEntries(getResults().get(ender).getId(), getResults().get(ender).getFavorite(),
+                            getResults().get(ender).getSubject(), getResults().get(ender).date(4), getResults().get(ender).getPrice().getFull(),
+                            getResults().get(ender).getNotes());
+                    //entries[ender] then takes info from entries p or entries k       
+                    getResults().get(ender).changeEntries(p.getId(), p.getFavorite(),
+                            p.getSubject(), p.date(4), p.getPrice().getFull(),
+                            p.getNotes());
+
+                    ender--;
+                    key--;
+                    key1 = Integer.parseInt(getResults().get(key).date(3));
+                    ender1 = Integer.parseInt(getResults().get(ender).date(3));
+                }
+            }
+        }
+    }
+
     public void sortYear() {
         fill2(Array2);
         for (int j = 1; j < getResults().size(); j++) {
@@ -475,123 +636,15 @@ public class Array2 {
         }
     }
 
-    public void sortYearGhost() {
-        for (int j = 1; j < getResults().size(); j++) {
-            int key = j;
-            int ender = key - 1;
-            int key1 = Integer.parseInt(getResults().get(key).date(3));
-
-            int ender1 = Integer.parseInt(getResults().get(ender).date(3));
-
-            if (key == 1) {
-                while (ender == 0 && key1 < ender1) {
-
-                    //Dummy entries, copies  entries [key]
-                    Entries p = new Entries();
-                    p.changeEntries(getResults().get(key).getId(), getResults().get(key).getFavorite(),
-                            getResults().get(key).getSubject(), getResults().get(key).date(4), getResults().get(key).getPrice().getFull(), getResults().get(key).getNotes());
-
-                    ///transfers entries[ender] to entries[key]
-                    getResults().get(key).changeEntries(getResults().get(ender).getId(), getResults().get(ender).getFavorite(),
-                            getResults().get(ender).getSubject(), getResults().get(ender).date(4), getResults().get(ender).getPrice().getFull(),
-                            getResults().get(ender).getNotes());
-                    //entries[ender] then takes info from entries p or entries k       
-                    getResults().get(ender).changeEntries(p.getId(), p.getFavorite(),
-                            p.getSubject(), p.date(4), p.getPrice().getFull(),
-                            p.getNotes());
-
-                    ender--;
-                }
-            }
-            if (key > 1) {
-                while (ender > 0 && key1 < ender1) {
-
-                    //Dummy entries, copies  entries [key]
-                    Entries p = new Entries();
-                    p.changeEntries(getResults().get(key).getId(), getResults().get(key).getFavorite(),
-                            getResults().get(key).getSubject(), getResults().get(key).date(4), getResults().get(key).getPrice().getFull(), getResults().get(key).getNotes());
-
-                    ///transfers entries[ender] to entries[key]
-                    getResults().get(key).changeEntries(getResults().get(ender).getId(), getResults().get(ender).getFavorite(),
-                            getResults().get(ender).getSubject(), getResults().get(ender).date(4), getResults().get(ender).getPrice().getFull(),
-                            getResults().get(ender).getNotes());
-                    //entries[ender] then takes info from entries p or entries k       
-                    getResults().get(ender).changeEntries(p.getId(), p.getFavorite(),
-                            p.getSubject(), p.date(4), p.getPrice().getFull(),
-                            p.getNotes());
-
-                    ender--;
-                    key--;
-                    key1 = Integer.parseInt(getResults().get(key).date(3));
-                    ender1 = Integer.parseInt(getResults().get(ender).date(3));
-                }
-            }
-        }
-    }
-
-    public void RsortYear() {
-        for (int j = 1; j < getResults().size(); j++) {
-            int key = j;
-            int ender = key - 1;
-            int key1 = Integer.parseInt(getResults().get(key).date(3));
-
-            int ender1 = Integer.parseInt(getResults().get(ender).date(3));
-
-            if (key == 1) {
-                while (ender == 0 && key1 < ender1) {
-
-                    //Dummy entries, copies  entries [key]
-                    Entries p = new Entries();
-                    p.changeEntries(getResults().get(key).getId(), getResults().get(key).getFavorite(),
-                            getResults().get(key).getSubject(), getResults().get(key).date(4), getResults().get(key).getPrice().getFull(), getResults().get(key).getNotes());
-
-                    ///transfers entries[ender] to entries[key]
-                    getResults().get(key).changeEntries(getResults().get(ender).getId(), getResults().get(ender).getFavorite(),
-                            getResults().get(ender).getSubject(), getResults().get(ender).date(4), getResults().get(ender).getPrice().getFull(),
-                            getResults().get(ender).getNotes());
-                    //entries[ender] then takes info from entries p or entries k       
-                    getResults().get(ender).changeEntries(p.getId(), p.getFavorite(),
-                            p.getSubject(), p.date(4), p.getPrice().getFull(),
-                            p.getNotes());
-
-                    ender--;
-                }
-            }
-            if (key > 1) {
-                while (ender > 0 && key1 < ender1) {
-
-                    //Dummy entries, copies  entries [key]
-                    Entries p = new Entries();
-                    p.changeEntries(getResults().get(key).getId(), getResults().get(key).getFavorite(),
-                            getResults().get(key).getSubject(), getResults().get(key).date(4), getResults().get(key).getPrice().getFull(), getResults().get(key).getNotes());
-
-                    ///transfers entries[ender] to entries[key]
-                    getResults().get(key).changeEntries(getResults().get(ender).getId(), getResults().get(ender).getFavorite(),
-                            getResults().get(ender).getSubject(), getResults().get(ender).date(4), getResults().get(ender).getPrice().getFull(),
-                            getResults().get(ender).getNotes());
-                    //entries[ender] then takes info from entries p or entries k       
-                    getResults().get(ender).changeEntries(p.getId(), p.getFavorite(),
-                            p.getSubject(), p.date(4), p.getPrice().getFull(),
-                            p.getNotes());
-
-                    ender--;
-                    key--;
-                    key1 = Integer.parseInt(getResults().get(key).date(3));
-                    ender1 = Integer.parseInt(getResults().get(ender).date(3));
-                }
-            }
-        }
-    }
-
     ///has to run twicte to work
-    public void RsortYearGhost() {
+    public void sortYearGhost() {
         for (int j = 1; j < getResults().size(); j++) {
             int key = j;
             int ender = key - 1;
             int key1 = Integer.parseInt(getArray2().get(key).date(3));
             int ender1 = Integer.parseInt(getArray2().get(ender).date(3));
             if (key == 1) {
-                while (ender == 0 && key1 > ender1) {
+                while (ender == 0 && key1 < ender1) {
 
                     //Dummy entries, copies  entries [key]
                     Entries p = new Entries();
@@ -611,7 +664,7 @@ public class Array2 {
                 }
             }
             if (key > 1) {
-                while (ender > 0 && key1 > ender1) {
+                while (ender > 0 && key1 < ender1) {
 
                     //Dummy entries, copies  entries [key]
                     Entries p = new Entries();
@@ -1409,20 +1462,21 @@ public class Array2 {
     }
 
     public void searchGains() {
+        System.out.println("gains");
         ///goes through array
         int i = 0;
         ///place in result array
         int j = 0;
         while (i < getArray2().size()) {
             if (getArray2().get(i).showEORL() == true) {
-                System.out.println("ree");
+//                System.out.println("ree");
                 result.add(new Entries());
                 getResults().get(j).changeEntries(getArray2().get(i).getId(), getArray2().get(i).getFavorite(),
                         getArray2().get(i).getSubject(), getArray2().get(i).date(4), getArray2().get(i).getPrice().getFull(), getArray2().get(i).getNotes());
                 j++;
                 i++;
             } else if (getArray2().get(i).showEORL() == false) {
-                System.out.println("nee");
+//                System.out.println("nee");
                 i++;
             }
         }
@@ -1503,6 +1557,7 @@ public class Array2 {
     }
 
     public void searchLosses() {
+        System.out.println("Losses");
         ///goes through array
         int i = 0;
         ///place in result array
@@ -1514,7 +1569,7 @@ public class Array2 {
                         getArray2().get(i).getSubject(), getArray2().get(i).date(4), getArray2().get(i).getPrice().getFull(), getArray2().get(i).getNotes());
                 i++;
                 j++;
-            } else {
+            } else if(getArray2().get(i).showEORL() == true){
                 i++;
             }
         }
@@ -1543,12 +1598,12 @@ public class Array2 {
             int key = j;
             int ender = key - 1;
             boolean key1 = getResults().get(key).showEORL();
-            double key3 = getResults().get(key).showPrice();
+//            double key3 = getResults().get(key).showPrice();
             boolean ender1 = getResults().get(ender).showEORL();
-            double ender3 = getResults().get(ender).showPrice();
+//            double ender3 = getResults().get(ender).showPrice();
 
             if (key == 1) {
-                while (ender == 0 && ender1 == true) {
+                while (ender == 0 && ender1 == false) {
 
                     //Dummy entries, copies  entries [key]
                     Entries p = new Entries();
@@ -1568,7 +1623,7 @@ public class Array2 {
                 }
             }
             if (key > 1) {
-                while (ender > 0 && ender1 == true) {
+                while (ender > 0 && ender1 == false) {
 
                     //Dummy entries, copies  entries [key]
                     Entries p = new Entries();
@@ -1588,8 +1643,8 @@ public class Array2 {
                     key--;
                     key1 = getResults().get(key).showEORL();
                     ender1 = getResults().get(ender).showEORL();
-                    key3 = getResults().get(key).showPrice();
-                    ender3 = getResults().get(ender).showPrice();
+//                    key3 = getResults().get(key).showPrice();
+//                    ender3 = getResults().get(ender).showPrice();
 
                 }
 
@@ -1616,6 +1671,18 @@ public class Array2 {
         for (int i = 0; i < getResults().size(); i++) {
             System.out.println(getResults().get(i).getId() + " " + getResults().get(i).getFavorite() + " " + getResults().get(i).getSubject() + " " + getResults().get(i).date(4) + " " + getResults().get(i).getPrice().getFull()
                     + " " + getResults().get(i).getNotes());
+        }
+    }
+
+    public void printEdits() {
+        for (int j = 0; j < getEdits().size(); j++) {
+            System.out.println(getEdits().get(j));
+        }
+    }
+
+    public void printEditedStrings() {
+        for (int j = 0; j < getEditedStringArray().size(); j++) {
+            System.out.println(getEditedStringArray().get(j));
         }
     }
 
@@ -2118,7 +2185,7 @@ public class Array2 {
             if (ident.compareTo(compare2) == 0) {
 //                System.out.println("compare2 is equal to ident");
                 ///goes through array
-                int i = compareHigher;
+                int i = 0;
                 ///place in result array
                 int j = 0;
                 while (i < getSearch().size()) {
@@ -2255,7 +2322,7 @@ public class Array2 {
                 }
                 if (compare2 < b && compare2 > a) {
                     System.out.println("c");
-                    int i = compareHigher;
+                    int i = 0;
                     ///place in result array
                     int j = 0;
                     while (i < getSearch().size()) {
@@ -2978,7 +3045,7 @@ public class Array2 {
                 }
                 if (compare2 < b && compare2 > a) {
                     System.out.println("c");
-                    int i = compareHigher;
+                    int i = 0;
                     ///place in result array
                     int j = 0;
                     while (i < getSearch().size()) {
@@ -3011,14 +3078,14 @@ public class Array2 {
             }
         } else if (a > b) {
             System.out.println("Start2");
-            searchDateSort();
-            searchDateSortGhost();
+            searchIDSort();
+            searchIDSortGhost();
             if (getSearch().size() >= 10) {
 
                 int compare = getSearch().size() / 2;
-                int compareHigher = 0 + (compare / 2);
+//                int compareHigher = 0 + (compare / 2);
                 int compare2 = getSearch().get(compare).getId();
-
+                System.out.println(compare2);
                 if (compare2 > b && compare2 > a) {
                     System.out.println("a2");
                     int i = 0;
@@ -3053,7 +3120,7 @@ public class Array2 {
                         }
                     }
                 }
-                if (compare2 < b && compare2 > a) {
+                if (compare2 > b && compare2 < a) {
                     System.out.println("c2");
                     int i = 0;
                     ///place in result array
@@ -3228,7 +3295,7 @@ public class Array2 {
             }
             if (compare2 == a) {
                 System.out.println("c");
-                int i = compareHigher;
+                int i = 0;
                 ///place in result array
                 int j = 0;
                 while (i < getSearch().size()) {
@@ -3569,8 +3636,8 @@ public class Array2 {
                 if (getResults().get(i).getFavorite() == false) {
                     getResults().remove(i);
                     g = getResults().size();
-                    System.out.println("\n");
-                    printResults();
+//                    System.out.println("\n");
+//                    printResults();
                 } else {
                     i++;
                     j++;
@@ -3929,7 +3996,7 @@ public class Array2 {
             boolean ender1 = getSearch().get(ender).showEORL();
 
             if (key == 1) {
-                while (ender == 0 && ender1 == true) {
+                while (ender == 0 && ender1 == false) {
 
                     //Dummy entries, copies  entries [key]
                     Entries p = new Entries();
@@ -3949,7 +4016,7 @@ public class Array2 {
                 }
             }
             if (key > 1) {
-                while (ender > 0 && ender1 == true) {
+                while (ender > 0 && ender1 == false) {
 
                     //Dummy entries, copies  entries [key]
                     Entries p = new Entries();
@@ -3967,8 +4034,8 @@ public class Array2 {
 
                     ender--;
                     key--;
-                    key1 = getSearch().get(key).getFavorite();
-                    ender1 = getSearch().get(ender).getFavorite();
+                    key1 = getSearch().get(key).showEORL();
+                    ender1 = getSearch().get(ender).showEORL();
 
                 }
             }
@@ -3983,7 +4050,7 @@ public class Array2 {
             boolean ender1 = getSearch().get(ender).showEORL();
 
             if (key == 1) {
-                while (ender == 0 && ender1 == true) {
+                while (ender == 0 && ender1 == false) {
 
                     //Dummy entries, copies  entries [key]
                     Entries p = new Entries();
@@ -4003,7 +4070,7 @@ public class Array2 {
                 }
             }
             if (key > 1) {
-                while (ender > 0 && ender1 == true) {
+                while (ender > 0 && ender1 == false) {
 
                     //Dummy entries, copies  entries [key]
                     Entries p = new Entries();
@@ -4021,8 +4088,8 @@ public class Array2 {
 
                     ender--;
                     key--;
-                    key1 = getSearch().get(key).getFavorite();
-                    ender1 = getSearch().get(ender).getFavorite();
+                    key1 = getSearch().get(key).showEORL();
+                    ender1 = getSearch().get(ender).showEORL();
 
                 }
             }
@@ -4038,7 +4105,7 @@ public class Array2 {
             boolean ender1 = getSearch().get(ender).showEORL();
 
             if (key == 1) {
-                while (ender == 0 && ender1 == false) {
+                while (ender == 0 && ender1 == true) {
 
                     //Dummy entries, copies  entries [key]
                     Entries p = new Entries();
@@ -4058,7 +4125,7 @@ public class Array2 {
                 }
             }
             if (key > 1) {
-                while (ender > 0 && ender1 == false) {
+                while (ender > 0 && ender1 == true) {
 
                     //Dummy entries, copies  entries [key]
                     Entries p = new Entries();
@@ -4076,8 +4143,8 @@ public class Array2 {
 
                     ender--;
                     key--;
-                    key1 = getSearch().get(key).getFavorite();
-                    ender1 = getSearch().get(ender).getFavorite();
+                    key1 = getSearch().get(key).showEORL();
+                    ender1 = getSearch().get(ender).showEORL();
 
                 }
             }
@@ -4092,7 +4159,7 @@ public class Array2 {
             boolean ender1 = getSearch().get(ender).showEORL();
 
             if (key == 1) {
-                while (ender == 0 && ender1 == false) {
+                while (ender == 0 && ender1 == true) {
 
                     //Dummy entries, copies  entries [key]
                     Entries p = new Entries();
@@ -4112,7 +4179,7 @@ public class Array2 {
                 }
             }
             if (key > 1) {
-                while (ender > 0 && ender1 == false) {
+                while (ender > 0 && ender1 == true) {
 
                     //Dummy entries, copies  entries [key]
                     Entries p = new Entries();
@@ -4130,8 +4197,8 @@ public class Array2 {
 
                     ender--;
                     key--;
-                    key1 = getSearch().get(key).getFavorite();
-                    ender1 = getSearch().get(ender).getFavorite();
+                    key1 = getSearch().get(key).showEORL();
+                    ender1 = getSearch().get(ender).showEORL();
 
                 }
             }
@@ -4146,7 +4213,7 @@ public class Array2 {
             if (getSearch().size() >= 10) {
                 System.out.println("1");
                 int compare = getSearch().size() / 2;
-                int compareHigher = 0 + (compare / 2);
+//                int compareHigher = 0 + (compare / 2);
                 double compare2 = getSearch().get(compare).showPrice();
 
                 if (getSearch().get(0).showPrice() >= a && getSearch().get(0).showPrice() <= b && getSearch().get(getSearch().size() - 1).showPrice() > a && getSearch().get(getSearch().size() - 1).showPrice() < b) {
@@ -4185,7 +4252,7 @@ public class Array2 {
                 }
                 if (compare2 < b && compare2 < a) {
                     System.out.println("b");
-                    int i = compare;
+                    int i = 0;
                     ///place in result array
                     int j = 0;
                     while (i < getSearch().size()) {
@@ -4202,7 +4269,7 @@ public class Array2 {
                 }
                 if (compare2 < b && compare2 > a) {
                     System.out.println("c");
-                    int i = compareHigher;
+                    int i = 0;
                     ///place in result array
                     int j = 0;
                     while (i < getSearch().size()) {
@@ -4295,7 +4362,7 @@ public class Array2 {
                         }
                     }
                 }
-                if (compare2 < b && compare2 > a) {
+                if (compare2 > b && compare2 < a) {
                     System.out.println("c2");
                     int i = 0;
                     ///place in result array
@@ -4552,7 +4619,7 @@ public class Array2 {
         }
     }
 
-    public void MasterSearch(String ID, int ID2, int ID3, boolean fav, boolean fav2, String Sub, String Date, int Date2, int Date3, boolean EORL, boolean EORL2, String Amount, int Amount2, int Amount3) {
+    public void MasterSearch(String ID, int ID2, int ID3, boolean fav, boolean fav2, String Sub, String Date, int Date2, int Date3, boolean EORL, boolean EORL2, String Amount, double Amount2, double Amount3) {
         //status is an indicator of whether or not to use the non  or the ghost   method of search 
         masterID(ID, ID2, ID3);
         masterFavorite(fav, fav2);
@@ -4729,7 +4796,7 @@ public class Array2 {
                     changeSearchStatus();
                     changeResultStatus();
                 } else {
-                    searchFavoriteGhost(fav2);
+                    searchFavorite(fav2);
                     changeSearchStatus();
                     changeResultStatus();
                 }
@@ -4991,11 +5058,11 @@ public class Array2 {
         } else {
             if (EORL) {
                 if (EORL2) {
-                    searchGainsGhost();
+                    searchGains();
                     changeSearchStatus();
                     changeResultStatus();
                 } else {
-                    searchLossesGhost();
+                    searchLosses();
                     changeSearchStatus();
                     changeResultStatus();
                 }
@@ -5005,13 +5072,14 @@ public class Array2 {
         }
     }
 
-    public void masterAmount(String Amount, int Amount2, int Amount3) {
+    public void masterAmount(String Amount, double Amount2, double Amount3) {
         if (SearchStatus) {
             switch (Amount) {
                 case "":
-                    if (Amount2 > 0 && Amount3 > 0) {
+                    if (Amount2 > 0 && Amount3 > 0 ||Amount2 >= 0 && Amount3 > 0||Amount2 > 0 && Amount3 >= 0) {
                         searchAmountGhost(Amount2, Amount3);
                     }
+                    
 
                     if ((Amount2 <= 0 && Amount3 <= 0) || (Amount2 > 0 && Amount3 <= 0) || (Amount2 <= 0 && Amount3 > 0)) {
                         ;
@@ -5103,11 +5171,12 @@ public class Array2 {
         } else {
             switch (Amount) {
                 case "":
-                    if (Amount2 > 0 && Amount3 > 0) {
+                    if (Amount2 > 0 && Amount3 > 0||Amount2 >= 0 && Amount3 > 0||Amount2 > 0 && Amount3 >= 0) {
                         searchAmount(Amount2, Amount3);
                         changeSearchStatus();
                         changeResultStatus();
                     }
+
 
                     if ((Amount2 <= 0 && Amount3 <= 0) || (Amount2 > 0 && Amount3 <= 0) || (Amount2 <= 0 && Amount3 > 0)) {
                         ;
@@ -5244,48 +5313,69 @@ public class Array2 {
         return -1;
     }
 
-    public void editAddEntry(boolean f, String s, String d, String a, String n) {
-        getArray2().add(new Entries(f, s, d, a, n));
-        getEdits().add("e");
+    public int getNewEntryID() {
+        return getCount2() + 1;
+    }
+
+    //int a2 call upon getNewEntryID()
+    public void editAddEntry(int a2, boolean f, String s, String d, String a, String n) {
+        getArray2().add(new Entries(a2, f, s, d, a, n));
+        String f2 = getArray2().get(searchEntryPlacement(a2)).getEntrySave();
+        getEditedStringArray().add(f2);
+        getEdits().add((getCount2() + 1) + "e");
+        addCount2();
     }
 
     public void editRemoveEntry(int a) {
-        getArray2().remove(a);
-        for (int i = getArray2().size(); i > a; i--) {
-            getArray2().get(i).changeId((getArray2().get(i).getId() - 1));
+        getArray2().remove(searchEntryPlacement(a));
+        for (int i = getArray2().size(); i >= a; i--) {
+            getArray2().get(i - 1).changeId((getArray2().get(i - 1).getId() - 1));
         }
-        getEdits().add("r");
-        
+        getEdits().add(a + "r");
+        subtractCount2();
+
     }
 /// a for all the edit methods will be form searchEntryPlacement()
 
     public void editEntriesFavorite(int a, boolean b) {
-        getArray2().get(a).changeFavorite(b);
-        getEdits().add(a + "f");
+        getArray2().get(searchEntryPlacement(a)).changeFavorite(b);
+        String f = getArray2().get(searchEntryPlacement(a)).getEntrySave();
+        getEditedStringArray().add(f);
+        getEdits().add(a + 1 + "f");
     }
 
     public void editEntriesFavorite(int a, String b) {
-        getArray2().get(a).changeFavorite(Boolean.parseBoolean(b));
-        getEdits().add(a + "f");
+        getArray2().get(searchEntryPlacement(a)).changeFavorite(Boolean.parseBoolean(b));
+        String f = getArray2().get(searchEntryPlacement(a)).getEntrySave();
+        getEditedStringArray().add(f);
+        getEdits().add(a + 1 + "f");
     }
 
     public void editEntriesSubject(int a, String b) {
-        getArray2().get(a).changeSubject(b);
-        getEdits().add(a + "s");
+        getArray2().get(searchEntryPlacement(a)).changeSubject(b);
+        String f = getArray2().get(searchEntryPlacement(a)).getEntrySave();
+        getEditedStringArray().add(f);
+        getEdits().add(a + 1 + "s");
     }
 
     public void editEntriesDate(int a, String b) {
-        getArray2().get(a).changeDate(b);
-        getEdits().add(a + "d");
+        getArray2().get(searchEntryPlacement(a)).changeDate(b);
+        String f = getArray2().get(searchEntryPlacement(a)).getEntrySave();
+        getEditedStringArray().add(f);
+        getEdits().add(a + 1 + "d");
     }
 
     public void editEntriesAmount(int a, String b) {
-        getArray2().get(a).changePrice(b);
-        getEdits().add(a + "a");
+        getArray2().get(searchEntryPlacement(a)).changePrice(b);
+        String f = getArray2().get(searchEntryPlacement(a)).getEntrySave();
+        getEditedStringArray().add(f);
+        getEdits().add(a + 1 + "a");
     }
 
     public void editEntriesNotes(int a, String b) {
-        getArray2().get(a).changeNotes(b);
+        getArray2().get(searchEntryPlacement(a)).changeNotes(b);
+        String f = getArray2().get(searchEntryPlacement(a)).getEntrySave();
+        getEditedStringArray().add(f);
         getEdits().add(a + "n");
     }
 
@@ -5294,6 +5384,7 @@ public class Array2 {
         double total = 0;
         for (int i = 0; i < getResults().size(); i++) {
             total += getResults().get(i).showPrice();
+//            System.out.println(total);
         }
         ///would be on exit or back button on gui
         clearResults();
@@ -5306,6 +5397,7 @@ public class Array2 {
         double total = 0;
         for (int i = 0; i < getResults().size(); i++) {
             total += getResults().get(i).showPrice();
+            //            System.out.println(total);
         }
         ///would be on exit or back button on gui
         clearResults();
@@ -5319,11 +5411,141 @@ public class Array2 {
     }
 
     public String[] masterSave(ArrayList<Entries> a) {
-        String[] save = new String[50];
+        String[] save = new String[a.size()];
         for (int i = 0; i < a.size(); i++) {
             save[i] = a.get(i).getEntrySave();
         }
         return save;
+    }
+
+    public void showEdits() {
+        for (int i = 0; i < getEdits().size(); i++) {
+            System.out.println(getEdits().get(i));
+        }
+    }
+
+//    public String getEditedSubject(int a){
+//         return getArray2().get(searchEntryPlacement(a)).getSubject();    
+//    }
+//    
+//    public String getEditedFavourite(int a){
+//        return Boolean.toString(getArray2().get(searchEntryPlacement(a)).getFavorite());
+//    }
+//    
+//    public String getEditedDate(int a){
+//        return getArray2().get(searchEntryPlacement(a)).date(4);
+//    }
+//    
+//    public String getEditedAmount(int a){
+//       return getArray2().get(searchEntryPlacement(a)).showPrice2(); 
+//    }
+//    
+//    public String getEditedNotes(int a){
+//        return getArray2().get(searchEntryPlacement(a)).getNotes();
+//    }
+    public String getEditedEntry(int a) {
+        return getArray2().get(searchEntryPlacement(a)).getEntrySave();
+    }
+
+//    public boolean searchEdits(boolean a) {
+//        int counter = 0;
+//        for (int i = 0; i < getEdits().size(); i++) {
+//            if (a) {
+//                if (getEdits().get(i).equalsIgnoreCase("r")) {
+//                    counter++;
+//                } else {
+//                    counter++;
+//                    counter--;
+//                }
+//            } else {
+//                if (getEdits().get(i).equalsIgnoreCase("e")) {
+//                    counter++;
+//                } else {
+//                    counter++;
+//                    counter--;
+//                }
+//            }
+//        }
+//
+//            if (counter > 0) {
+//                return true;
+//            } else if (counter == 0) {
+//                return false;
+//            }
+//            return false;
+//        }
+    public static boolean calculateLeap2(int a) {
+        boolean leap = false;
+        if (a % 4 == 0) {
+            leap = true;
+            if (a % 100 == 0) {
+                leap = false;
+                if (a % 400 == 0) {
+                    leap = true;
+                }
+            }
+        }
+        return leap;
+    }
+//will not work if leap 29/2 is put in when year is not leap year
+
+    public static String getYearFromInt(int a) {
+        double b = (a / 365) - 1;
+        double b2 = (b / 4) + (b / 100) + (b / 400);
+        double b3 = a - b2;
+        int b4 = (int) Math.rint(b3 / 365);
+        int b5 = b4 * 365 + (b4 / 4) - (b4 / 100) + (b4 / 400);
+        int b6 = a - b5;
+        int[] calender = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        int[] calenderl = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        if (calculateLeap2(b4) == true) {
+            System.out.println("reee");
+            int month = 0;
+            int day = 0;
+            int calenderspot = 0;
+            while (calenderspot < calenderl.length) {
+                if (b6 <= 31) {
+                    month = 1;
+                    day = b6;
+                } else {
+                    b6 = b6 - calenderl[calenderspot];
+                    if (b6 <= calenderl[calenderspot + 1]) {
+                        day = b6;
+                        month = calenderspot + 2;
+                        calenderspot = 100;
+                    } else {
+                        calenderspot++;
+                    }
+                }
+            }
+            return Integer.toString(day) + "/" + Integer.toString(month) + "/" + Integer.toString(b4);
+        } else {
+            System.out.println("deee");
+            int month1 = 0;
+            int day1 = 0;
+            int calenderspot = 0;
+            while (calenderspot < calender.length) {
+                if (b6 <= 31) {
+                    month1 = 1;
+                    day1 = b6;
+                } else {
+                    b6 = b6 - calender[calenderspot];
+                    if (b6 <= calender[calenderspot + 1]) {
+                        day1 = b6;
+                        month1 = calenderspot + 2;
+                        calenderspot = 100;
+                    } else {
+                        calenderspot++;
+                    }
+                }
+            }
+            return Integer.toString(day1) + "/" + Integer.toString(month1) + "/" + Integer.toString(b4);
+        }
+    }
+    
+    public int getFullDayValue(int y){
+        int year =  y*365+(y/4)-(y/100)+(y/400) ;
+       return year; 
     }
 
 }
