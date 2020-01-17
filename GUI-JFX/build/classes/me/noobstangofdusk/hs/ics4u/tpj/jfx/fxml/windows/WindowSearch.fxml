@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
@@ -9,62 +10,217 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="searchAnchor" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" fx:id="searchAnchor" prefHeight="440.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="14.0" layoutY="14.0" text="Find file: (Leave blank to search all)" textFill="#40014a" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
-         <font>
-            <Font name="Ubuntu Medium" size="17.0" />
-         </font>
-      </Label>
-      <Label layoutX="33.0" layoutY="51.0" text="Entry #:" textFill="#2f022f" AnchorPane.leftAnchor="31.0" AnchorPane.topAnchor="51.0">
-         <font>
-            <Font name="Ubuntu Light" size="14.0" />
-         </font>
-      </Label>
-      <TextField layoutX="101.0" layoutY="46.0" promptText="(e.g. 1-17, 23, 45, 79)" AnchorPane.leftAnchor="101.0" AnchorPane.topAnchor="46.0">
-         <tooltip>
-            <Tooltip text="Entry number. Enter individual numbers or ranges,separated by commas." />
-         </tooltip></TextField>
-      <RadioButton layoutX="101.0" layoutY="85.0" mnemonicParsing="false" text="Before above">
-         <tooltip>
-            <Tooltip text="Search entries before number indicated above. Above must be a single number!" />
-         </tooltip></RadioButton>
-      <RadioButton layoutX="230.0" layoutY="85.0" mnemonicParsing="false" text="After above">
-         <tooltip>
-            <Tooltip text="Search entries after number indicated above. Above must be a single number!" />
-         </tooltip></RadioButton>
-      <Label layoutX="32.0" layoutY="126.0" text="Subject:" textFill="#2f022f">
-         <font>
-            <Font name="Ubuntu Light" size="14.0" />
-         </font>
-      </Label>
-      <ChoiceBox layoutX="101.0" layoutY="121.0" prefWidth="150.0" />
-      <Label layoutX="48.0" layoutY="166.0" text="Date:" textFill="#2f022f">
-         <font>
-            <Font name="Ubuntu Light" size="14.0" />
-         </font>
-      </Label>
-      <DatePicker layoutX="101.0" layoutY="161.0" prefHeight="26.0" prefWidth="186.0" promptText="(dd/mm/yyyy)" />
-      <Label layoutX="298.0" layoutY="166.0" text="---" />
-      <DatePicker layoutX="324.0" layoutY="161.0" prefHeight="26.0" prefWidth="186.0" promptText="(dd/mm/yyyy)" />
-      <Label layoutX="29.0" layoutY="226.0" text="Amount:" />
-      <TextField layoutX="101.0" layoutY="221.0" prefHeight="26.0" prefWidth="215.0" promptText="(e.g. $86.19, $25.99-$38.00)">
-         <tooltip>
-            <Tooltip text="Search by balance change." />
-         </tooltip></TextField>
-      <Label layoutX="29.0" layoutY="269.0" text="Balance:" />
-      <TextField layoutX="101.0" layoutY="264.0" prefHeight="26.0" prefWidth="215.0" promptText="(e.g. $86.19, $25.99-$38.00)">
-         <tooltip>
-            <Tooltip text="Search by remaining balance after the entry is applied." />
-         </tooltip></TextField>
-      <Label layoutX="24.0" layoutY="307.0" text="Favourite:" />
-      <CheckBox layoutX="103.0" layoutY="306.0" mnemonicParsing="false">
-         <tooltip>
-            <Tooltip text="Search by favourited." />
-         </tooltip></CheckBox>
-      <Button layoutX="511.0" layoutY="360.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" text="Search" />
-      <Button layoutX="425.0" layoutY="360.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" text="Cancel" />
+      <VBox layoutX="14.0" layoutY="14.0" prefHeight="440.0" prefWidth="680.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label text="Search entry: (Leave blank to search all)" textFill="#7c097a">
+               <font>
+                  <Font name="Ubuntu Medium" size="20.0" />
+               </font>
+            </Label>
+            <HBox>
+               <children>
+                  <Label text="Entry #:" textFill="#2f022f">
+                     <font>
+                        <Font name="Ubuntu Light" size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="8.0" top="18.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="serEntryField" prefHeight="26.0" prefWidth="200.0" promptText="(e.g. 1-17, 23, 45, 79)">
+                     <tooltip>
+                        <Tooltip text="Entry number. Enter individual numbers or ranges,separated by commas." />
+                     </tooltip>
+                     <HBox.margin>
+                        <Insets left="18.0" top="16.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <RadioButton fx:id="serEntryBeforeRadio" mnemonicParsing="false" text="Before above">
+                     <tooltip>
+                        <Tooltip text="Search entries before number indicated above. Above must be a single number!" />
+                     </tooltip>
+                     <HBox.margin>
+                        <Insets left="32.0" top="8.0" />
+                     </HBox.margin>
+                  </RadioButton>
+                  <RadioButton fx:id="serEntryAfterRadio" mnemonicParsing="false" text="After above">
+                     <tooltip>
+                        <Tooltip text="Search entries after number indicated above. Above must be a single number!" />
+                     </tooltip>
+                     <HBox.margin>
+                        <Insets left="15.0" top="8.0" />
+                     </HBox.margin>
+                  </RadioButton>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label text="Subject:" textFill="#2f022f">
+                     <font>
+                        <Font name="Ubuntu Light" size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="8.0" top="17.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ChoiceBox fx:id="serSubjectChoiceBox" prefWidth="150.0">
+                     <HBox.margin>
+                        <Insets left="17.0" top="14.0" />
+                     </HBox.margin>
+                  </ChoiceBox>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label text="Date:" textFill="#2f022f">
+                     <font>
+                        <Font name="Ubuntu Light" size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="8.0" top="15.0" />
+                     </HBox.margin>
+                  </Label>
+                  <DatePicker fx:id="serDatePick1" prefHeight="26.0" prefWidth="186.0" promptText="(dd/mm/yyyy)">
+                     <HBox.margin>
+                        <Insets left="35.0" top="12.0" />
+                     </HBox.margin>
+                  </DatePicker>
+                  <Label text="---">
+                     <HBox.margin>
+                        <Insets left="5.0" top="17.0" />
+                     </HBox.margin>
+                  </Label>
+                  <DatePicker fx:id="serDatePick2" prefHeight="26.0" prefWidth="186.0" promptText="(dd/mm/yyyy)">
+                     <HBox.margin>
+                        <Insets left="5.0" top="12.0" />
+                     </HBox.margin>
+                  </DatePicker>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <RadioButton fx:id="serDateMonthBfRadio" mnemonicParsing="false" text="Month before">
+                     <HBox.margin>
+                        <Insets left="32.0" top="8.0" />
+                     </HBox.margin>
+                     <tooltip>
+                        <Tooltip text="Search entries from 30 days before the first date above. Leave second box empty when selecting this." />
+                     </tooltip>
+                  </RadioButton>
+                  <RadioButton fx:id="serDateWeekBfRadio" mnemonicParsing="false" text="Week before">
+                     <HBox.margin>
+                        <Insets left="15.0" top="8.0" />
+                     </HBox.margin>
+                     <tooltip>
+                        <Tooltip text="Search entries from 7 days before the first date above. Leave second box empty when selecting this." />
+                     </tooltip>
+                  </RadioButton>
+                  <RadioButton fx:id="serDateMonthAftRadio" mnemonicParsing="false" text="Month after">
+                     <HBox.margin>
+                        <Insets left="15.0" top="8.0" />
+                     </HBox.margin>
+                     <tooltip>
+                        <Tooltip text="Search entries from 30 days after the first date above. Leave second box empty when selecting this." />
+                     </tooltip>
+                  </RadioButton>
+                  <RadioButton fx:id="serDateWeekAftRadio" mnemonicParsing="false" text="Week after">
+                     <HBox.margin>
+                        <Insets left="15.0" top="8.0" />
+                     </HBox.margin>
+                     <tooltip>
+                        <Tooltip text="Search entries from 7 days after the first date above. Leave second box empty when selecting this." />
+                     </tooltip>
+                  </RadioButton>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label text="Amount:">
+                     <font>
+                        <Font name="Ubuntu Light" size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="8.0" top="15.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="serAmountField" prefHeight="26.0" prefWidth="215.0" promptText="(e.g. $86.19, $25.99-$38.00)">
+                     <tooltip>
+                        <Tooltip text="Search by balance change." />
+                     </tooltip>
+                     <HBox.margin>
+                        <Insets left="12.0" top="12.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label text="Balance:">
+                     <HBox.margin>
+                        <Insets left="8.0" top="15.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Ubuntu Light" size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="serBalanceField" prefHeight="26.0" prefWidth="215.0" promptText="(e.g. $86.19, $25.99-$38.00)">
+                     <tooltip>
+                        <Tooltip text="Search by remaining balance after the entry is applied." />
+                     </tooltip>
+                     <HBox.margin>
+                        <Insets left="14.0" top="12.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label text="Favourite:">
+                     <font>
+                        <Font name="Ubuntu Light" size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="8.0" top="15.0" />
+                     </HBox.margin>
+                  </Label>
+                  <CheckBox fx:id="serFavouriteCheck" mnemonicParsing="false">
+                     <tooltip>
+                        <Tooltip text="Search by favourited." />
+                     </tooltip>
+                     <HBox.margin>
+                        <Insets left="12.0" top="15.0" />
+                     </HBox.margin>
+                  </CheckBox>
+               </children>
+            </HBox>
+            <HBox alignment="BOTTOM_RIGHT" VBox.vgrow="ALWAYS">
+               <children>
+                  <Button fx:id="serMainSearch" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" text="Search">
+                     <HBox.margin>
+                        <Insets bottom="15.0" right="14.0" top="15.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="serMainCancel" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" text="Cancel">
+                     <HBox.margin>
+                        <Insets bottom="15.0" right="28.0" top="15.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets left="15.0" top="21.0" />
+         </padding>
+      </VBox>
    </children>
 </AnchorPane>
