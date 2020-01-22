@@ -30,7 +30,7 @@
                               <Insets left="6.0" top="32.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="custographEntryEditField" promptText="(Entry Number)">
+                        <TextField fx:id="custographEntryEditField" maxWidth="400.0" promptText="(Entry Number)">
                            <VBox.margin>
                               <Insets top="40.0" />
                            </VBox.margin>
@@ -38,7 +38,7 @@
                               <Tooltip text="Enter numbers or ranges, separated by commas. E.g. 1, 2, 37-81, 64" />
                            </tooltip>
                         </TextField>
-                        <ChoiceBox fx:id="custographSubjectChoice" prefWidth="150.0">
+                        <ChoiceBox fx:id="custographSubjectChoice" prefHeight="26.0" prefWidth="163.0">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
@@ -46,14 +46,6 @@
                               <Tooltip text="Select entries matching the specified subject" />
                            </tooltip>
                         </ChoiceBox>
-                        <TextField fx:id="custographDateField" editable="false" promptText="(Date)">
-                           <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                           <tooltip>
-                              <Tooltip text="Date range of entries to be displayed. Select dates below." />
-                           </tooltip>
-                        </TextField>
                         <HBox spacing="5.0">
                            <children>
                               <DatePicker fx:id="custographEditDateChooser1" promptText="date 1">
@@ -72,15 +64,10 @@
                                  </tooltip>
                               </DatePicker>
                            </children>
-                        </HBox>
-                        <TextField fx:id="custographAmountField" editable="false" promptText="(Amount)">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
-                           <tooltip>
-                              <Tooltip text="Amount range of entries to be displayed. Set amount range below." />
-                           </tooltip>
-                        </TextField>
+                        </HBox>
                         <HBox spacing="5.0">
                            <children>
                               <TextField fx:id="custographEditAmountField1" promptText="amount 1">
@@ -99,15 +86,10 @@
                                  </tooltip>
                               </TextField>
                            </children>
-                        </HBox>
-                        <TextField fx:id="custographBalanceField" editable="false" promptText="(Balance)">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
-                           <tooltip>
-                              <Tooltip text="Remaining balance range of entries to be selected. Set balance range below." />
-                           </tooltip>
-                        </TextField>
+                        </HBox>
                         <HBox spacing="5.0">
                            <children>
                               <TextField fx:id="custographEditBalanceField1" promptText="balance 1">
@@ -122,6 +104,9 @@
                                  </tooltip>
                               </TextField>
                            </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
                         </HBox>
                         <CheckBox fx:id="custographFavouriteCheck" mnemonicParsing="false" text="Favourite">
                            <VBox.margin>
@@ -136,7 +121,7 @@
                         </CheckBox>
                         <HBox alignment="BOTTOM_RIGHT" VBox.vgrow="ALWAYS">
                            <children>
-                              <Button fx:id="custographUpdateChart" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#custoGraphUpdateChartAction" text="Show">
+                              <Button fx:id="custographUpdateChart" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#custoGraphUpdateChartAction" styleClass="roundedButton" stylesheets="@../St0rageAreaLitePrimary.css" text="Display Graph">
                                  <HBox.margin>
                                     <Insets bottom="10.0" right="10.0" />
                                  </HBox.margin>
@@ -144,7 +129,7 @@
                                     <Tooltip text="By default, graph displays entries from currently loaded file." />
                                  </tooltip>
                               </Button>
-                              <Button fx:id="custographChartAddFromFile" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#custographChartAddFromFileAction" text="Add from file...">
+                              <Button fx:id="custographChartAddFromFile" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#custographChartAddFromFileAction" styleClass="roundedButton" stylesheets="@../St0rageAreaLitePrimary.css" text="Add from file...">
                                  <HBox.margin>
                                     <Insets bottom="10.0" right="10.0" />
                                  </HBox.margin>

@@ -1,0 +1,53 @@
+/*
+ ICS4U Term Project, Earl of March Secondary School
+
+ Copyright 2019 under the GNU 2.0 License
+ All rights reserved.
+*/
+.descriptionValue {
+    -fx-background-color: #ffffe9;
+    -fx-border-color: #b3b3b3;
+}
+
+.descriptionValue:focused {
+    -fx-background-color: -fx-focus-color, transparent, #ffffe9;
+}
+
+.descriptionValue:hover {
+    -fx-background-color: -fx-focus-color, -fx-text-box-border, #ffffe9;
+}
+
+/* Projects tree */
+.blackTree {
+    -fx-background-color: #333333;
+}
+
+.blackTree .tree-cell {
+    -fx-padding: 6 0 0 0;
+    -fx-background-color: #333333;
+    -fx-text-fill: lightgrey;
+}
+
+.blackTree .tree-cell:focused {
+    -fx-text-fill: white;
+}
+
+.tree-view .tree-cell .arrow {
+    -fx-shape: "M 0 -4 L 7 0 L 0 4 z";
+    -fx-scale-shape: false;
+    -fx-background-color: red;
+}
+
+/* Toolbar buttons */
+.roundedButton {
+    -fx-background-radius: 10;
+    -fx-font:lem "Arial Bold";
+}
+
+
+
+/* 
+    Created on : Jan 21, 2020, 10:53:01 PM
+    Author     : noobstang
+*/
+

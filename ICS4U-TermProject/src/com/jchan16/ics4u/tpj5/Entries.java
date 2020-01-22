@@ -1,4 +1,4 @@
-package com.jchan.ics4u.tpj5;
+package com.jchan16.ics4u.tpj5;
 
 /**
  * Entry file - test https://github.com/noobstang/hamilten.git

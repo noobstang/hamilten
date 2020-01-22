@@ -1,4 +1,4 @@
-package com.jchan16.ics4u.tpj.u1;
+package com.jchan16.ics4u.tpj2;
 
 /**
  * Entry file - test
@@ -56,7 +56,7 @@ public class Entries {
         price = new Amount(a);
         notes = n;
         
-       entryCount++;
+        entryCount++;
         STATIC_ID = entryCount; 
     }
 
@@ -92,8 +92,8 @@ public class Entries {
         return time;
     }
 
-    public String date(int d) {
-        switch (d) {
+    public String date(int lmao) {
+        switch (lmao) {
             case 1:
                 return time.showDay();
 
@@ -105,9 +105,31 @@ public class Entries {
 
             case 4:
                 return time.showDay() + "/" + time.showMonth() + "/" + time.showYear();
+                
 
             default:
                 return "error";
+        }
+    }
+    
+    public long date2(int lmao){
+        switch (lmao) {
+            case 1:
+                return time.showDay2();
+                
+
+            case 2:
+                return time.showMonth2();
+
+            case 3:
+                return time.showYear2();
+                
+            case 4:
+                return time.showFullDay();
+               
+                
+            default:
+                return 0;
         }
     }
 

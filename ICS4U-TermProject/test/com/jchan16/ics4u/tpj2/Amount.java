@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.jchan16.ics4u.tpj.u3;
+package com.jchan16.ics4u.tpj2;
 
 /**
  *
@@ -42,16 +42,5 @@ public double checkAmount(){
  
  public String getFull(){
      return fullAmount;
- }
- 
- public void editAmount(String a){
-  if(a.substring(0,1).equals("+")==true){
-checker=true;
-}
-else if(a.substring(0,1).equals("-")==false){
-checker=false;  
-}
-amount= Double.parseDouble(a.substring(1,a.length()));
-setFull(checker,amount);   
  }
 }
