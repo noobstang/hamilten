@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *  ICS4U Term Project, Earl of March Secondary School
+ * 
+ *  Copyright 2019 under the GNU 2.0 License
+ *  All rights reserved.
  */
 package com.jchan16.ics4u.tpj5;
 import java.util.ArrayList;

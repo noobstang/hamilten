@@ -56,7 +56,7 @@ public class Main extends Application {
         // Set the Scene to the Stage
         stage.setScene(scene);
         // Set the Title to the Stage
-        stage.setTitle("stockSh3LL Finance Management");
+        stage.setTitle("St0rageAreaLite Finance Management");
         // Display the Stage
         stage.show();
         
