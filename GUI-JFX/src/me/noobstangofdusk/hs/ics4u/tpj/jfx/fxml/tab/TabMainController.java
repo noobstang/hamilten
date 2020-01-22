@@ -24,8 +24,6 @@ import javafx.scene.layout.AnchorPane;
 public class TabMainController implements Initializable {
 
     @FXML
-    private TableView<?> mainTableView;
-    @FXML
     private TableColumn<?, ?> mainLsEntry;
     @FXML
     private TableColumn<?, ?> mainLsSubject;
@@ -40,13 +38,13 @@ public class TabMainController implements Initializable {
     @FXML
     private TableColumn<?, ?> mainLsFavourite;
     @FXML
-    private Button mainBtnSearch;
+    private TableView<?> srTableView;
     @FXML
-    private Button mainBtnImport;
+    private Button srShowOnMainScr;
     @FXML
-    private Button mainBtnExport;
+    private Button srCancel;
     @FXML
-    private AnchorPane tabFinance__APane;
+    private Button srMakeNewFile;
 
     /**
      * Initializes the controller class.
@@ -61,10 +59,6 @@ public class TabMainController implements Initializable {
         
     }
 
-    @FXML
-    private void mainImportMasterAction(ActionEvent event) {
-        
-    }
 
     @FXML
     private void mainExportMasterAction(ActionEvent event) {
