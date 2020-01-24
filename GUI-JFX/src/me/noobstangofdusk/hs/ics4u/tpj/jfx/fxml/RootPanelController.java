@@ -8,8 +8,12 @@ package me.noobstangofdusk.hs.ics4u.tpj.jfx.fxml;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -81,7 +85,13 @@ public class RootPanelController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        FXMLLoader loader = new FXMLLoader();
+        String filePath = "./tab/TabMain.fxml";
+//        FileInputStream fileStream = new FileInputStream(filePath);
+        
+        tabFinanceAPane = 
+        
     }    
 
     @FXML

@@ -8,9 +8,16 @@ package me.noobstangofdusk.hs.ics4u.tpj.jfx.fxml.tab;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.*;
+import javafx.stage.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -55,7 +62,23 @@ public class TabMainController implements Initializable {
     }    
 
     @FXML
-    private void mainSearchMasterAction(ActionEvent event) {
+    private void mainSearchMasterAction(ActionEvent event) throws IOException {
+        
+        Stage window = new Stage();
+        
+        //Initialize FXMLLoader
+        FXMLLoader loader = new FXMLLoader();
+        //Define FXML file path
+        String filePath = "../windows/WindowSearch.fxml";
+        //Create FileInputStream object with filepath
+        FileInputStream fileStream = new FileInputStream(filePath);
+        //Set root panel
+        AnchorPane root = (AnchorPane) loader.load(fileStream);
+        
+        Scene scene = new Scene(root);
+        window.setScene(scene);
+        window.show();
+        
         
     }
 

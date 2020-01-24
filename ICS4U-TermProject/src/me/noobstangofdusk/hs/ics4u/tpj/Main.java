@@ -32,7 +32,7 @@ public class Main extends Application {
     
     public static void main(String[] args) {
         out.println("Test");
-        Application.launch(args);
+        launch(args);
         
     }
     
