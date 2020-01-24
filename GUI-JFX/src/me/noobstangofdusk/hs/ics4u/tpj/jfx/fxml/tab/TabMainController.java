@@ -69,6 +69,10 @@ public class TabMainController implements Initializable {
     
     //Balance static variable
     private static Amount balance;
+    
+    public Array2 a2Suite = new Array2();
+    
+    
 
     /**
      * Initializes the controller class.
@@ -78,8 +82,9 @@ public class TabMainController implements Initializable {
         
         initTable();
         
-        
         initEntries();
+        
+        
     }    
     
     //Initialize table columns
@@ -123,6 +128,8 @@ public class TabMainController implements Initializable {
     }
     
     public ObservableList<Entries> getEntries() {
+        
+        
         
         //Initialize with dummy database
         DatabaseDummy slacker = new DatabaseDummy();

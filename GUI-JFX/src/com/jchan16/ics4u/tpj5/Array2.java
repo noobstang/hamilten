@@ -24,11 +24,11 @@ public class Array2 {
     //search from results only from master list
     private int counter;
     //master list of all entries
-    public static ArrayList<Entries> Array2 = new ArrayList<Entries>();
+    private ArrayList<Entries> Array2 = new ArrayList<Entries>();
     //copy of master to be used with search
-    public static ArrayList<Entries> Array3 = new ArrayList<Entries>();
+    private ArrayList<Entries> Array3 = new ArrayList<Entries>();
     //display results of whatever sort/search
-    public static ArrayList<Entries> result = new ArrayList<Entries>();
+    private ArrayList<Entries> result = new ArrayList<Entries>();
 //not used anymore but it would have been used to get unique years and store here
     private ArrayList<Integer> years = new ArrayList<Integer>();
 //Array that stores simplified edits count
