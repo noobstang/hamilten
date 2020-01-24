@@ -128,7 +128,9 @@ public class TabMainController implements Initializable {
         
         //Initialize Table View
         mainTableView = new TableView<>();
+        mainTableView.setItems(getEntries());
         mainTableView.getColumns().addAll(mainLsEntry, mainLsSubject, mainLsDate, mainLsAmount, mainLsBalance, mainLsNotes, mainLsFavourite);
+        
         
     }
     
