@@ -5,10 +5,6 @@
         <group name="ICS4U-hamilten">
             <file>file:/home/earl/Documents/hamilten/GUI-JFX/src/me/noobstangofdusk/hs/ics4u/tpj/jfxmain/Start.java</file>
         </group>
-        <group name="Group-ICS4U-TermProject">
-            <file>file:/home/noobstang/gan/TermProjectGit/GUI-JFX/src/me/noobstangofdusk/hs/ics4u/tpj/jfx/fxml/RootPanelController.java</file>
-            <file>file:/home/noobstang/gan/TermProjectGit/GUI-JFX/src/me/noobstangofdusk/hs/ics4u/tpj/jfx/fxml/St0rageAreaLitePrimary.css</file>
-        </group>
         <group>
             <file>file:/home/noobstang/gan/TermProjectGit/GUI-JFX/src/me/noobstangofdusk/hs/ics4u/tpj/jfx/fxml/chart/ReportSubAreaChart.fxml</file>
             <file>file:/home/noobstang/gan/TermProjectGit/GUI-JFX/src/me/noobstangofdusk/hs/ics4u/tpj/jfx/fxml/windows/WindowAccountLoginController.java</file>
@@ -16,5 +12,6 @@
             <file>file:/home/noobstang/gan/TermProjectGit/GUI-JFX/src/me/noobstangofdusk/hs/ics4u/tpj/jfx/fxml/tab/TabMainController.java</file>
             <file>file:/home/noobstang/gan/TermProjectGit/GUI-JFX/src/me/noobstangofdusk/hs/ics4u/tpj/jfx/flatterfx.css</file>
         </group>
+        <group name="Group-ICS4U-TermProject"/>
     </open-files>
 </project-private>
