@@ -28,6 +28,7 @@ import javafx.collections.ObservableList;
 
 
 import com.jchan16.ics4u.tpj5.*;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -71,6 +72,18 @@ public class TabMainController implements Initializable {
     private static Amount balance;
     
     public Array2 a2Suite = new Array2();
+    @FXML
+    private TextField mEntryField;
+    @FXML
+    private TextField mSubjectField;
+    @FXML
+    private TextField mDateField;
+    @FXML
+    private TextField mAmountField;
+    @FXML
+    private TextField mBalanceField;
+    @FXML
+    private TextField mNoteField;
     
     
 
@@ -120,28 +133,31 @@ public class TabMainController implements Initializable {
     }
     
     //Fill table with entries
-    @FXML
     public void initEntries() {
         //Get entries from static master array (Array2)
-        mainTableView.setItems(getEntries());
+        mainTableView.getItems().addAll(getEntries());
         
     }
     
-    public ObservableList<Entries> getEntries() {
-        
-        
+    private ObservableList<Entries> getEntries() {
         
         //Initialize with dummy database
-        DatabaseDummy slacker = new DatabaseDummy();
+        DatabaseDummy filler = new DatabaseDummy();
+        for (Object en :  filler.getArray() ) {
+            ((Entries)en).getEntry();
+            System.out.println();
+        }
+            
+        a2Suite.fill(filler.getArray());
         
-//        Array2.Array2.fill(slacker);
         
-        ObservableList<Entries> entriesOL = FXCollections.observableArrayList();
-        for (Entries entry: Array2.Array2) {
-            entriesOL.add(entry);
+        ObservableList<Entries> entriesL = FXCollections.observableArrayList();
+        
+        for (Entries en: a2Suite.getArray2()) {
+            entriesL.add(en);
         }
         
-        return entriesOL;
+        return entriesL;
     }
     
     @FXML
@@ -166,7 +182,6 @@ public class TabMainController implements Initializable {
         */
     }
     
-    @FXML
     public void initSearchAlertWindow() {
         
     }
@@ -184,7 +199,18 @@ public class TabMainController implements Initializable {
 
     @FXML
     private void mainAddEntryAction(ActionEvent event) {
+        Entries newEntry = new Entries();
+        newEntry.changeId(Integer.parseInt(mEntryField.getText()));
+        newEntry.changeSubject(mSubjectField.getText());
+        newEntry.changeDate(mDateField.getText());
+        newEntry.changePrice(mAmountField.getText());
+        newEntry.changeNotes(mNoteField.getText());
         
+        mEntryField.clear();
+        mSubjectField.clear();
+        mDateField.clear();
+        mAmountField.clear();
+        mNoteField.clear();
     }
 
     @FXML

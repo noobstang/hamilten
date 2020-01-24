@@ -46,6 +46,14 @@ public void setFull(boolean a, double b){
         fullAmount="-"+amount;
     }
 }
+
+public void setFull(double a) {
+    if(a < 0) {
+        fullAmount = "-" + amount*-1;
+    } else {
+        fullAmount = "+" + amount;
+    }
+}
  
 public String getFull(){
     return fullAmount;
