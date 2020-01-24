@@ -1,10 +1,9 @@
 /*
- *  ICS4U Term Project, Earl of March Secondary School
- * 
- *  Copyright 2019 under the GNU 2.0 License
- *  All rights reserved.
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
-package com.jchan16.ics4u.tpj5;
+package com.jchan.ics4u.tpj5;
 import java.io.File;
 import java.io.IOException;
 /**
@@ -22,7 +21,7 @@ public class Tester {
         DatabaseDummy a= new DatabaseDummy();
         Save e= new Save();
         e.makeLog(1);
-        e.readLogToRead(1);
+//        e.readLogToRead(1);
         //Don't use this one
 //        e.writeLogReplace(e.getFileName(1), a.getCopy());
 //        e.readFromFile(e.getFileName(1));
@@ -79,6 +78,8 @@ public class Tester {
 //        e.readFromFile(e.getFileName2("Test"));
 //        e.printArray2();
 //        e.clearEdits3();
+        
+        
         //testing sorts
         //(top to bottom sorts)
 //        e.sortAmount();
@@ -202,6 +203,7 @@ public class Tester {
 //        e.MasterSearch("", 0, 0, false, true, "", "", 0, 0, false, true, "", 1500.00, 1000.00);
 //        1 combination(entries 1-15, only favourite, only gains)
         e.MasterSearch("", 0, 0, true, true, "", "", 0, 0, true, true, "", 0, 0);
+        
         e.printResults();
         //Math+search
 //        System.out.println(e.addGains());
