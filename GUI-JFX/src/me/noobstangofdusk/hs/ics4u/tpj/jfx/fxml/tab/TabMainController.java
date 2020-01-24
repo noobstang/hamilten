@@ -21,7 +21,13 @@ import javafx.stage.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+
+import com.jchan16.ics4u.tpj5.*;
 
 /**
  * FXML Controller class
@@ -31,38 +37,109 @@ import javafx.scene.layout.AnchorPane;
 public class TabMainController implements Initializable {
 
     @FXML
-    private TableColumn<?, ?> mainLsEntry;
+    private TableColumn<Entries, Integer> mainLsEntry;
     @FXML
-    private TableColumn<?, ?> mainLsSubject;
+    private TableColumn<Entries, String> mainLsSubject;
     @FXML
-    private TableColumn<?, ?> mainLsDate;
+    private TableColumn<Entries, Date> mainLsDate;
     @FXML
-    private TableColumn<?, ?> mainLsAmount;
+    private TableColumn<Entries, Amount> mainLsAmount;
     @FXML
-    private TableColumn<?, ?> mainLsBalance;
+    private TableColumn<Entries, Amount> mainLsBalance;
     @FXML
-    private TableColumn<?, ?> mainLsNotes;
+    private TableColumn<Entries, String> mainLsNotes;
     @FXML
-    private TableColumn<?, ?> mainLsFavourite;
+    private TableColumn<Entries, Boolean> mainLsFavourite;
     @FXML
-    private TableView<?> srTableView;
+    private AnchorPane tabFinance__APane;
     @FXML
-    private Button srShowOnMainScr;
+    private TableView<Entries> mainTableView;
     @FXML
-    private Button srCancel;
+    private Button mainBtnImport;
     @FXML
-    private Button srMakeNewFile;
+    private Button mainBtnExport;
+    @FXML
+    private Button mainBtnSearch;
+    @FXML
+    private Button mainBtnAdd;
+    @FXML
+    private Button mainBtnDelete;
+    @FXML
+    private Button mainBtnEdit;
+    
+    //Balance static variable
+    private static Amount balance;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        initTable();
+        
+        
+        initEntries();
     }    
-
+    
+    //Initialize table columns
+    public void initTable() {
+        
+        //Initialize table columns
+        mainLsEntry = new TableColumn<Entries, Integer>("Entry #");
+        mainLsEntry.setCellValueFactory(new PropertyValueFactory<>("id"));
+        
+        mainLsSubject = new TableColumn<Entries, String>("Subject");
+        mainLsSubject.setCellValueFactory(new PropertyValueFactory<>("subject"));
+        
+        mainLsDate = new TableColumn<Entries, Date>("Date");
+        mainLsDate.setCellValueFactory(new PropertyValueFactory<>("time"));
+        
+        mainLsAmount = new TableColumn<Entries, Amount>("Amount");
+        mainLsAmount.setCellValueFactory(new PropertyValueFactory<>("price"));
+        
+        //Balance is static, held by MainTable
+        mainLsBalance = new TableColumn<Entries, Amount>("Balance");
+        mainLsBalance.setCellValueFactory(new PropertyValueFactory<>("balance"));
+        
+        mainLsNotes = new TableColumn<Entries, String>("Notes");
+        mainLsNotes.setCellValueFactory(new PropertyValueFactory<>("notes"));
+        
+        mainLsFavourite = new TableColumn<Entries, Boolean>("Favourite");
+        mainLsFavourite.setCellValueFactory(new PropertyValueFactory<>("favorite"));
+        
+        //Initialize Table View
+        mainTableView = new TableView<>();
+        mainTableView.getColumns().addAll(mainLsEntry, mainLsSubject, mainLsDate, mainLsAmount, mainLsBalance, mainLsNotes, mainLsFavourite);
+        
+    }
+    
+    //Fill table with entries
     @FXML
-    private void mainSearchMasterAction(ActionEvent event) throws IOException {
+    public void initEntries() {
+        //Get entries from static master array (Array2)
+        mainTableView.setItems(getEntries());
+        
+    }
+    
+    public ObservableList<Entries> getEntries() {
+        
+        //Initialize with dummy database
+        DatabaseDummy slacker = new DatabaseDummy();
+        
+//        Array2.Array2.fill(slacker);
+        
+        ObservableList<Entries> entriesOL = FXCollections.observableArrayList();
+        for (Entries entry: Array2.Array2) {
+            entriesOL.add(entry);
+        }
+        
+        return entriesOL;
+    }
+    
+    @FXML
+    private void mainSearchMasterAction(ActionEvent event) {
+        /*
         
         Stage window = new Stage();
         
@@ -79,6 +156,11 @@ public class TabMainController implements Initializable {
         window.setScene(scene);
         window.show();
         
+        */
+    }
+    
+    @FXML
+    public void initSearchAlertWindow() {
         
     }
 
@@ -86,6 +168,25 @@ public class TabMainController implements Initializable {
     @FXML
     private void mainExportMasterAction(ActionEvent event) {
         
+    }
+
+    @FXML
+    private void mainImportMasterAction(ActionEvent event) {
+        
+    }
+
+    @FXML
+    private void mainAddEntryAction(ActionEvent event) {
+        
+    }
+
+    @FXML
+    private void mainDeleteEntryAction(ActionEvent event) {
+        
+    }
+
+    @FXML
+    private void mainEditEntryAction(ActionEvent event) {
     }
     
 }

@@ -11,6 +11,9 @@ import java.util.ResourceBundle;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +23,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -86,17 +90,50 @@ public class RootPanelController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        FXMLLoader loader = new FXMLLoader();
-        String filePath = "./tab/TabMain.fxml";
-//        FileInputStream fileStream = new FileInputStream(filePath);
+        initTabFinance();
+        initTabReport();
         
-        tabFinanceAPane = 
-        
+        TabAccount.setDisable(true);
+        TabAdd.setDisable(true);
     }    
 
     @FXML
     private void TANewAction(Event event) {
         
+    }
+    
+    private void initTabFinance() {
+        Parent loader = null;
+        String filePath = "tab/TabMain.fxml";
+        
+        try{
+            loader = FXMLLoader.load(getClass().getResource(filePath));
+        } catch (IOException ex) {
+            Logger.getLogger(RootPanelController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+        tabFinanceAPane.getChildren().setAll(loader);
+        tabFinanceAPane.setTopAnchor(loader, 0.0);
+        tabFinanceAPane.setBottomAnchor(loader, 0.0);
+        tabFinanceAPane.setLeftAnchor(loader, 0.0);
+        tabFinanceAPane.setRightAnchor(loader, 0.0);
+    }
+    
+    private void initTabReport() {
+        Parent loader = null;
+        String filePath = "tab/TabReport.fxml";
+        
+        try{
+            loader = FXMLLoader.load(getClass().getResource(filePath));
+        } catch (IOException ex) {
+            Logger.getLogger(RootPanelController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+        tabReportAPane.getChildren().setAll(loader);
+        tabReportAPane.setTopAnchor(loader, 0.0);
+        tabReportAPane.setBottomAnchor(loader, 0.0);
+        tabReportAPane.setLeftAnchor(loader, 0.0);
+        tabReportAPane.setRightAnchor(loader, 0.0);
     }
     
 }

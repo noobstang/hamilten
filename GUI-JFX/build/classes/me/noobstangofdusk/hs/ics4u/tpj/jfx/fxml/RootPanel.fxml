@@ -30,9 +30,9 @@
                 </Menu>
                 <Menu fx:id="MBEdit" mnemonicParsing="false" text="Edit">
                   <items>
-                        <MenuItem fx:id="mbCopy" mnemonicParsing="false" text="Copy (Ctrl+C)" />
-                        <MenuItem fx:id="mbPaste" mnemonicParsing="false" text="Paste (Ctrl+V))" />
-                        <MenuItem fx:id="mbUndo" mnemonicParsing="false" text="Undo (Ctrl+Z)" />
+                        <MenuItem fx:id="mbCopy" mnemonicParsing="false" text="Copy" />
+                        <MenuItem fx:id="mbPaste" mnemonicParsing="false" text="Paste" />
+                        <MenuItem fx:id="mbUndo" mnemonicParsing="false" text="Undo" />
                     <MenuItem fx:id="mbDelete" mnemonicParsing="false" text="Delete" />
                   </items>
                 </Menu>

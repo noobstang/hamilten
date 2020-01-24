@@ -6,37 +6,48 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
 <AnchorPane id="AnchorPane" fx:id="tabFinance__APane" prefHeight="540.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.noobstangofdusk.hs.ics4u.tpj.jfx.fxml.tab.TabMainController">
    <children>
-      <TableView fx:id="mainTableView" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <columns>
-          <TableColumn fx:id="mainLsEntry" prefWidth="75.0" text="Entry #" />
-          <TableColumn fx:id="mainLsSubject" prefWidth="75.0" text="Subject" />
-            <TableColumn fx:id="mainLsDate" prefWidth="75.0" text="Date" />
-            <TableColumn fx:id="mainLsAmount" prefWidth="75.0" text="Amount" />
-            <TableColumn fx:id="mainLsBalance" prefWidth="75.0" text="Balance" />
-            <TableColumn fx:id="mainLsNotes" prefWidth="75.0" text="Notes" />
-            <TableColumn fx:id="mainLsFavourite" prefWidth="75.0" text="Favourite" />
-        </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
-      </TableView>
-      <AnchorPane layoutY="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <TableView fx:id="mainTableView" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="mainLsEntry" prefWidth="75.0" text="Entry #" />
+                <TableColumn fx:id="mainLsSubject" prefWidth="75.0" text="Subject" />
+                  <TableColumn fx:id="mainLsDate" prefWidth="75.0" text="Date" />
+                  <TableColumn fx:id="mainLsAmount" prefWidth="75.0" text="Amount" />
+                  <TableColumn fx:id="mainLsBalance" prefWidth="75.0" text="Balance" />
+                  <TableColumn fx:id="mainLsNotes" prefWidth="75.0" text="Notes" />
+                  <TableColumn fx:id="mainLsFavourite" prefWidth="75.0" text="Favourite" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <AnchorPane>
                <children>
-                  <Separator prefWidth="17.0" />
-                  <Button fx:id="mainBtnImport" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#mainImportMasterAction" prefHeight="27.0" prefWidth="80.0" text="Import" />
-                  <Separator prefWidth="10.0" />
-                  <Button fx:id="mainBtnExport" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#mainExportMasterAction" prefHeight="27.0" prefWidth="80.0" text="Export" />
-                  <Separator prefWidth="800.0" />
-                  <Button fx:id="mainBtnSearch" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#mainSearchMasterAction" prefHeight="27.0" prefWidth="84.0" text="Search" />
-                  <Separator minWidth="-Infinity" prefWidth="17.0" />
+                  <HBox AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Separator prefWidth="17.0" />
+                        <Button fx:id="mainBtnImport" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#mainImportMasterAction" prefHeight="27.0" prefWidth="80.0" text="Import" />
+                        <Separator prefWidth="10.0" />
+                        <Button fx:id="mainBtnExport" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#mainExportMasterAction" prefHeight="27.0" prefWidth="80.0" text="Export" />
+                        <Separator prefWidth="10.0" />
+                        <Button fx:id="mainBtnAdd" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#mainAddEntryAction" text="Add" />
+                        <Separator prefWidth="10.0" />
+                        <Button fx:id="mainBtnEdit" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#mainEditEntryAction" text="Edit" />
+                        <Separator prefWidth="10.0" />
+                        <Button fx:id="mainBtnDelete" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#mainDeleteEntryAction" text="Delete" />
+                        <Separator prefWidth="800.0" />
+                        <Button fx:id="mainBtnSearch" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#mainSearchMasterAction" prefHeight="27.0" prefWidth="84.0" text="Search" />
+                        <Separator minWidth="-Infinity" prefWidth="17.0" />
+                     </children>
+                  </HBox>
                </children>
-            </HBox>
+            </AnchorPane>
          </children>
-      </AnchorPane>
+      </VBox>
    </children>
 </AnchorPane>

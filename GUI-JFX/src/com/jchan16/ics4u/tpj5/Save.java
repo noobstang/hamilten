@@ -26,7 +26,7 @@ public class Save extends Array2 {
 
     private final String d = "AccountData";
     private File f = new File(d);
-    private File e = new File(d + "/test_save.txt");
+    private File e = new File(d + "/Entries.txt");
     private ArrayList<Entries> savelog = new ArrayList<Entries>();
 //private FileReader reader;
 

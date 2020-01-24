@@ -29,7 +29,7 @@ public class AlertBox {
         
         Label label = new Label();
         label.setText(message);
-        Button closeButton = new Button("Clsoe the window");
+        Button closeButton = new Button("Close the window");
         closeButton.setOnAction(e -> window.close());
         
         VBox layout = new VBox(10);
@@ -41,9 +41,7 @@ public class AlertBox {
         window.showAndWait();
         
         
-        
     }
-    
     
     
 }
