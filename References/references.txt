@@ -7,3 +7,7 @@ https://www.cs.buap.mx/~ygalicia/Libros/JavaSwing.pdf
 
 JavaFX Tutorial Series - thenewsboston {YouTube}
 https://www.youtube.com/watch?v=7LxWQIDOzyE
+
+Java 8 - Full Beginner Tutorial - freeCodeCamp.org
+https://youtu.be/grEKMHGYyns
+
