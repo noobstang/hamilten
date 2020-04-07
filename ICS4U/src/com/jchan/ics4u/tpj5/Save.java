@@ -1,10 +1,9 @@
 /*
- *  ICS4U Term Project, Earl of March Secondary School
- * 
- *  Copyright 2019 under the GNU 2.0 License
- *  All rights reserved.
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
-package com.jchan16.ics4u.tpj5;
+package com.jchan.ics4u.tpj5;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -24,10 +23,9 @@ import java.util.List;
  */
 public class Save extends Array2 {
 
-    private final String d = "/home/noobstang/gan/TermProject/ICS4U-TermProject/"+
-            "AccountData";
+    private final String d = "/AccountData";
     private File f = new File(d);
-    private File e = new File(d + "/test_save.txt");
+    private File e = new File(d + "/Entries.txt");
     private ArrayList<Entries> savelog = new ArrayList<Entries>();
 //private FileReader reader;
 
