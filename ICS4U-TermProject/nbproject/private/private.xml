@@ -2,27 +2,8 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group>
-            <file>file:/home/noobstang/gan/TermProjectGit/ICS4U-TermProject/src/com/jchan16/ics4u/tpj5/Tester.java</file>
-            <file>file:/home/noobstang/gan/TermProjectGit/ICS4U-TermProject/src/com/jchan16/ics4u/tpj5/Save.java</file>
-            <file>file:/home/noobstang/gan/TermProjectGit/ICS4U-TermProject/src/com/jchan16/ics4u/tpj5/DatabaseDummy.java</file>
-            <file>file:/home/noobstang/gan/TermProjectGit/ICS4U-TermProject/src/com/jchan16/ics4u/tpj5/Amount.java</file>
-            <file>file:/home/noobstang/gan/TermProjectGit/ICS4U-TermProject/src/com/jchan16/ics4u/tpj5/Month_Day.java</file>
-            <file>file:/home/noobstang/gan/TermProjectGit/ICS4U-TermProject/src/com/jchan16/ics4u/tpj5/Date.java</file>
-            <file>file:/home/noobstang/gan/TermProjectGit/ICS4U-TermProject/src/com/jchan16/ics4u/tpj5/Array2.java</file>
-            <file>file:/home/noobstang/gan/TermProjectGit/ICS4U-TermProject/src/com/jchan16/ics4u/tpj5/Connector.java</file>
-            <file>file:/home/noobstang/gan/TermProjectGit/ICS4U-TermProject/src/com/jchan16/ics4u/tpj5/Entries.java</file>
-            <file>file:/home/noobstang/gan/TermProjectGit/ICS4U-TermProject/src/me/noobstangofdusk/hs/ics4u/tpj/Main.java</file>
-        </group>
         <group name="Group-ICS4U-TermProject">
-            <file>file:/home/noobstang/gan/TermProjectGit/ICS4U-TermProject/src/me/noobstangofdusk/hs/ics4u/tpj/Main.java</file>
+            <file>file:/home/noobstang/gan/TermProjectGit/ICS4U-TermProject/src/noobstangvb/hs/ics4u/tpj/Main.java</file>
         </group>
-=======
-        <group name="Group-ICS4U-TermProject">
-            <file>file:/home/noobstang/gan/TermProjectGit/ICS4U-TermProject/src/me/noobstangofdusk/hs/ics4u/tpj/Main.java</file>
-        </group>
-        <group/>
->>>>>>> JAK14
     </open-files>
 </project-private>
