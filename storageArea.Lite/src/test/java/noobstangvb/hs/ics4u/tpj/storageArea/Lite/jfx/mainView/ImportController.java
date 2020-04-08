@@ -4,7 +4,7 @@
  *  Copyright 2019 under the GNU 2.0 License
  *  All rights reserved.
  */
-package noobstangvb.hs.ics4u.tpj.jfxmain.view;
+package noobstangvb.hs.ics4u.tpj.storageArea.Lite.jfx.mainView;
 
 import java.net.URL;
 import java.util.ResourceBundle;

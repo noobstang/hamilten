@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package noobstangvb.hs.ics4u.tpj.jfx.test;
+package noobstangvb.hs.ics4u.tpj.storageArea.Lite.jfx.test;
 
 import java.io.IOException;
 

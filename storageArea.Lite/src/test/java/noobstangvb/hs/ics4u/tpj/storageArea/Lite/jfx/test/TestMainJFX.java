@@ -1,4 +1,4 @@
-package noobstangvb.hs.ics4u.tpj.jfx.test;
+package noobstangvb.hs.ics4u.tpj.storageArea.Lite.jfx.test;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
