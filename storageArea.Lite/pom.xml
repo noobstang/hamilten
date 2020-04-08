@@ -6,7 +6,7 @@
   <artifactId>storageArea.Lite</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-  <name>storageArea.Lite</name>
+  <name>storageArea.Lite Finance Manager</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
