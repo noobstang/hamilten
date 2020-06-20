@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>dav_jak.ics4u.tpj</groupId>
+  <artifactId>storageArea.Lite</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+  <name>storageArea.Lite Finance Manager</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <description>storageArea Lite is a personal finance-management software for managing personal income/expenses and related data.
+
+This project was originally intended as a term project for the ICS4U course to fulfill the required expectations in the Ontario education curriculum.
+
+The project is open source under the GNU 2.0 Public license.</description>
+  <url>https://github.com/noobstang/hamilten</url>
+</project>

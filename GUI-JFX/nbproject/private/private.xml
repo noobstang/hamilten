@@ -2,23 +2,8 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group name="ICS4U-hamilten">
-            <file>file:/home/earl/Documents/hamilten/GUI-JFX/src/me/noobstangofdusk/hs/ics4u/tpj/jfxmain/Start.java</file>
-        </group>
-        <group>
-            <file>file:/home/noobstang/gan/TermProjectGit/GUI-JFX/src/me/noobstangofdusk/hs/ics4u/tpj/jfx/fxml/chart/ReportSubAreaChart.fxml</file>
-            <file>file:/home/noobstang/gan/TermProjectGit/GUI-JFX/src/me/noobstangofdusk/hs/ics4u/tpj/jfx/fxml/windows/WindowAccountLoginController.java</file>
-            <file>file:/home/noobstang/gan/TermProjectGit/GUI-JFX/src/me/noobstangofdusk/hs/ics4u/tpj/jfx/fxml/windows/WindowSearchController.java</file>
-            <file>file:/home/noobstang/gan/TermProjectGit/GUI-JFX/src/me/noobstangofdusk/hs/ics4u/tpj/jfx/fxml/tab/TabMainController.java</file>
-            <file>file:/home/noobstang/gan/TermProjectGit/GUI-JFX/src/me/noobstangofdusk/hs/ics4u/tpj/jfx/flatterfx.css</file>
-        </group>
         <group name="Group-ICS4U-TermProject">
-            <file>file:/home/noobstang/gan/TermProjectGit/GUI-JFX/src/me/noobstangofdusk/hs/ics4u/tpj/jfx/fxml/RootPanelController.java</file>
-            <file>file:/home/noobstang/gan/TermProjectGit/GUI-JFX/src/me/noobstangofdusk/hs/ics4u/tpj/jfx/fxml/tab/TabMainController.java</file>
+            <file>file:/home/noobstang/gan/TermProjectGit/GUI-JFX/src/jchan16/ics4u/tpj5/Tester.java</file>
         </group>
-=======
-        <group/>
->>>>>>> JAK14
     </open-files>
 </project-private>

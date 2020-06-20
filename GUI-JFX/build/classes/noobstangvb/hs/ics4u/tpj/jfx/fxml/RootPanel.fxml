@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="960.0" stylesheets="@../../../../../../../../../JFXTu1337/src/me/noobstangofdusk/cb/jfxtu1337/ab25CssStyle/Viper.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.noobstangofdusk.hs.ics4u.tpj.jfx.fxml.RootPanelController">
+   <children>
+      <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <MenuBar fx:id="MenuBar">
+              <menus>
+                <Menu fx:id="MBFile" mnemonicParsing="false" text="File">
+                  <items>
+                        <MenuItem fx:id="mbNewFile" mnemonicParsing="false" text="New..." />
+                        <MenuItem fx:id="mbOpenFile" mnemonicParsing="false" text="Open..." />
+                        <MenuItem fx:id="mbSaveFile" mnemonicParsing="false" text="Save" />
+                        <MenuItem fx:id="mbSaveFileAs" mnemonicParsing="false" text="Save as..." />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                    <MenuItem fx:id="mbQuit" mnemonicParsing="false" text="Quit" />
+                  </items>
+                </Menu>
+                <Menu fx:id="MBEdit" mnemonicParsing="false" text="Edit">
+                  <items>
+                        <MenuItem fx:id="mbCopy" mnemonicParsing="false" text="Copy" />
+                        <MenuItem fx:id="mbPaste" mnemonicParsing="false" text="Paste" />
+                        <MenuItem fx:id="mbUndo" mnemonicParsing="false" text="Undo" />
+                    <MenuItem fx:id="mbDelete" mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                  <Menu fx:id="MBAccount" mnemonicParsing="false" text="Account">
+                    <items>
+                      <MenuItem fx:id="mbLogin" mnemonicParsing="false" text="Log in..." />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="mbLogout" mnemonicParsing="false" text="Log out" />
+                    </items>
+                  </Menu>
+                <Menu fx:id="MBHelp" mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem fx:id="mbAbout" mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <TabPane fx:id="MainTabPane" prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+              <tabs>
+                <Tab fx:id="TabFinance" closable="false" text=" Finance ">
+                  <content>
+                    <AnchorPane fx:id="tabFinanceAPane" />
+                  </content>
+                </Tab>
+                <Tab fx:id="TabReport" closable="false" text="  Report  ">
+                  <content>
+                    <AnchorPane fx:id="tabReportAPane" />
+                  </content>
+                </Tab>
+                  <Tab fx:id="TabAccount" text=" Account ">
+                    <content>
+                      <AnchorPane fx:id="tabAccountAPane" />
+                    </content>
+                  </Tab>
+                  <Tab fx:id="TabAdd" onSelectionChanged="#TANewAction" text="+" />
+              </tabs>
+            </TabPane>
+            <AnchorPane>
+               <children>
+                  <Label text="Status." AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="2.0">
+                     <font>
+                        <Font name="Ubuntu Light" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
